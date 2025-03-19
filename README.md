@@ -18,13 +18,26 @@ A curated list of resources dedicated to Large Language Models (LLMs) for mathem
 
 - [1. Surveys](#1-surveys)
 - [2. Base Models](#2-base-models)
-- [3. Mathematical Reasoning Approaches](#3-mathematical-reasoning-approaches)
-- [4. Tasks and Applications](#4-tasks-and-applications)
-- [5. Evaluation and Benchmarks](#5-evaluation-and-benchmarks)
+- [3. Mathematical Reasoning Methods](#3-mathematical-reasoning-methods)
+  - [3.1 Reasoning Paradigms](#31-reasoning-paradigms)
+  - [3.2 Training Methodologies](#32-training-methodologies)
+  - [3.3 Technical Implementations](#33-technical-implementations)
+- [4. Mathematical Domains and Applications](#4-mathematical-domains-and-applications)
+  - [4.1 Word Problems](#41-word-problems)
+  - [4.2 Formal Mathematics and Theorem Proving](#42-formal-mathematics-and-theorem-proving)
+  - [4.3 Geometry Problems](#43-geometry-problems)
+  - [4.4 Educational Mathematics](#44-educational-mathematics)
+  - [4.5 Applied Mathematics](#45-applied-mathematics)
+- [5. Evaluation, Benchmarks and Datasets](#5-evaluation-benchmarks-and-datasets)
+  - [5.1 General Mathematical Benchmarks](#51-general-mathematical-benchmarks)
+  - [5.2 Domain-Specific Benchmarks](#52-domain-specific-benchmarks)
+  - [5.3 Multimodal Mathematics Datasets](#53-multimodal-mathematics-datasets)
+  - [5.4 Instruction Tuning Datasets](#54-instruction-tuning-datasets)
 - [6. Tools and Libraries](#6-tools-and-libraries)
-- [7. Datasets](#7-datasets)
-- [8. Analysis and Limitations](#8-analysis-and-limitations)
-- [9. Emerging Research Directions](#9-emerging-research-directions)
+- [7. Analysis, Limitations and Future Directions](#7-analysis-limitations-and-future-directions)
+  - [7.1 Capability Analysis](#71-capability-analysis)
+  - [7.2 Known Limitations](#72-known-limitations)
+  - [7.3 Emerging Research Directions](#73-emerging-research-directions)
 
 <!-- ## Current Development Phase
 
@@ -33,7 +46,12 @@ We are currently in **Phase 1: Foundation** of our development plan, focusing on
 2. Primary Benchmarks and Datasets
 3. Basic Mathematical Reasoning Approaches -->
 
-<!-- ### Recent Survey Highlights -->
+### Recent Highlights
+
+[2025-03]
+
+- **ERNIE**: "Baidu Unveils ERNIE 4.5 and Reasoning Model ERNIE X1" [[website](https://yiyan.baidu.com/)]
+- **QaQ**: "QwQ-32B: Embracing the Power of Reinforcement Learning" [[blog](https://qwenlm.github.io/blog/qwq-32b/)] [[repo](https://github.com/QwenLM/QwQ)]
 
 
 ## 1. Surveys
@@ -159,150 +177,235 @@ This section contains a list of base LLMs that are designed for general-purpose 
 
 - **Grok 3**: "Grok 3 Beta — The Age of Reasoning Agents" [2025-02] [[blog](https://x.ai/news/grok-3)]
 
-### 2.3 Multimodal Models
+### 2.3 Reasoning Models
 
-<!-- ## 3. Mathematical Reasoning Approaches
+- **DeepSeek-R1**: "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning" [2025-01] [[paper](https://arxiv.org/abs/2501.12948)] [[repo](https://github.com/deepseek-ai/DeepSeek-R1)] 
 
-*Methodologies for enhancing mathematical reasoning in LLMs*
+- **QaQ**: "QwQ-32B: Embracing the Power of Reinforcement Learning" [2025-03] [[blog](https://qwenlm.github.io/blog/qwq-32b/)] [[repo](https://github.com/QwenLM/QwQ)]
 
-### 3.1 Mathematical Prompting Strategies
+- **ERNIE X1**: "Baidu Unveils ERNIE 4.5 and Reasoning Model ERNIE X1" [2025-03] [[website](https://yiyan.baidu.com/)]
 
-- Chain-of-Thought: "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models" [2022-11] [paper]
-- Self-Consistency: "Self-Consistency Improves Chain of Thought Reasoning in Language Models" [2023-03] [paper]
-- Program-of-Thought: "Program of Thoughts Prompting: Disentangling Computation from Reasoning for Numerical Reasoning Tasks" [2023-05] [paper]
-- MathChat: "MathChat: An LLM Framework with Mathematical Reasoning via In-context Collaborative Problem-Solving" [2023-06] [paper]
-- MathPromper: "MathPromper: Mathematical Reasoning Using Large Language Models" [2023-07] [paper]
+- **Gemini 2.0 Flash Thinking**: "Gemini 2.0 Flash Thinking" [2025-03] [[blog](https://deepmind.google/technologies/gemini/flash-thinking/)]
 
-### 3.2 LLM as Reasoner
 
-- MATH-SHEPHERD: "MATH-SHEPHERD: A Process-Oriented Math Verifier" [2023-11] [paper]
+### 2.4 Multimodal Models
 
-- Math-LLaVA: "Math-LLaVA: Bootstrapping Multimodal Mathematical Reasoning" [2024-02] [paper]
+### 2.5 Key LLM Techniques and Methods
 
-- Math-PUMA: "Math-PUMA: Progressive Upward Multimodal Alignment for Math Reasoning Enhancement" [2024-04] [paper]
+- **LoRA**: "LoRA: Low-Rank Adaptation of Large Language Models" [2021-06] [[paper](https://arxiv.org/abs/2106.09685)]
 
-- STIC: "Enhancing Large Vision Language Models with Self-Training on Image Comprehension" [2024-04] [paper]
+- **MoE**: "Mixture of Experts" [2023-11] [[blog](https://huggingface.co/blog/moe)]
 
-- VCAR: "Describe-then-Reason: Visual-Centric Training for Multimodal Mathematical Reasoning" [2024-04] [paper]
+- **COT**: "Chain of Thought Prompting Elicits Reasoning in Large Language Models" [2022-01] [[paper](https://arxiv.org/abs/2201.11903)]
 
-### 3.3 LLM as Enhancer
+- **Self-Consistency**: "Self-Consistency Improves Chain of Thought Reasoning in Language Models" [2022-05] [[paper](https://arxiv.org/abs/2203.11171)]
 
-- Masked Thought: "Masked Thought: Simply Masking Partial Reasoning Steps Can Improve Mathematical Reasoning Learning of Language Models" [2024-03] [paper]
+- **DPO**: "Direct Preference Optimization: Your Language Model is Secretly a Reward Model" [2023-05] [[paper](https://arxiv.org/abs/2305.18290)]
 
-- MathGenie: "MathGenie: Generating Diverse Math Problems with Integrated Solutions" [2024-03] [paper]
+- **RLHF**: "Training language models to follow instructions with human feedback" [2022-05] [[paper](https://arxiv.org/abs/2203.02155)]
 
-- AlphaGeometry: "Solving Olympiad Geometry without Human Demonstrations" [2024-01] [paper]
+- **GRPO**: "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models" [2024-02] [[paper](https://arxiv.org/abs/2402.03300)]
 
-- LogicSolver: "A Formula-Based Tree Structure for Solving Mathematical Logic Problems" [2022-12] [paper]
 
-- InfiMM-Math: "InfiMM-Math-40B: Advancing Multimodal Pre-training for Enhanced Mathematical Reasoning" [2024-09] [paper]
+## 3. Mathematical Reasoning Methods
 
-### 3.4 LLM as Planner
+*Core approaches and methodologies for enhancing mathematical reasoning in Large Language Models*
 
-- ToRA: "ToRA: A Tool-Integrated Reasoning Agent for Mathematical Problem Solving" [2023-09] [paper]
+### 3.1 Reasoning Paradigms
 
-- COPRA: "COPRA: COllaborative PRoof Assistant with GPT-4" [2024-02] [paper]
+*Fundamental techniques for mathematical problem-solving with LLMs*
 
-- Chameleon: "Chameleon: Plug-and-Play Compositional Reasoning with Language Models" [2024-04] [paper]
+- **Chain-of-Thought**: "Chain of Thought Prompting Elicits Reasoning in Large Language Models" [2022-01] [[paper](https://arxiv.org/abs/2201.11903)]
 
-- Visual Sketchpad: "Visual Sketchpad: Sketching as a Visual Chain of Thought for Multimodal Language Models" [2024-06] [paper]
+- **Self-Consistency**: "Self-Consistency Improves Chain of Thought Reasoning in Language Models" [2022-05] [[paper](https://arxiv.org/abs/2203.11171)]
 
-### 3.5 In-Context Learning and Few-Shot Methods
+- **Tree of Thoughts**: "Tree of Thoughts: Deliberate Problem Solving with Large Language Models" [2023-05] [[paper](https://arxiv.org/abs/2305.10601)]
 
-- PROMPTPG: "Dynamic Prompt Learning via Policy Gradient for Semi-structured Mathematical Reasoning" [2023-01] [paper]
-- Complexity-Based: "Complexity-Based Prompting for Multi-Step Reasoning" [2023-05] [paper]
-- MetaMath: "MetaMath: Bootstrap Your Own Mathematical Questions for Large Language Models" [2023-09] [paper]
-- Self-Verification: "Solving Challenging Math Word Problems Using GPT-4 Code Interpreter with Code-based Self-Verification" [2023-08] [paper]
+- **Tool-Augmented Reasoning**: "ToRA: A Tool-Integrated Reasoning Agent for Mathematical Problem Solving" [2023-11] [[paper](https://arxiv.org/abs/2309.17452)]
 
-## 4. Tasks and Applications
+- **Program-Based Methods**: "Program of Thoughts Prompting: Disentangling Computation from Reasoning for Numerical Reasoning Tasks" [2022-11] [[paper](https://arxiv.org/abs/2211.12588)]
 
-*Specific mathematical domains and applications of LLMs*
+- **Search-Based Methods**: "Enhancing LLM Reasoning with Reward-guided Tree Search" [2023-10] [[paper](https://arxiv.org/abs/2310.09177)]
 
-### 4.1 Math Word Problems
+- **Verification Methods**: "Math-Shepherd: Verify and Reinforce LLMs Step-by-step without Human Annotations" [2023-11] [[paper](https://arxiv.org/abs/2308.07615)]
 
-- GSM8K: "Training Verifiers to Solve Math Word Problems" [2021-10] [paper]
-- Scratchpad: "Show Your Work: Scratchpads for Intermediate Computation with Language Models" [2021-12] [paper]
-- Solving MWP: "Pseudo-Dual Learning: Solving Math Word Problems with Reexamination" [2023-10] [paper]
-- Symbolic MWP: "Reasoning in Large Language Models Through Symbolic Math Word Problems" [2023-05] [paper]
+- **Multi-Turn Reasoning**: "MathChat: Benchmarking Mathematical Reasoning and Instruction Following in Multi-Turn Interactions" [2023-11] [[paper](https://arxiv.org/abs/2306.01337)]
 
-### 4.2 Theorem Proving
+### 3.2 Training Methodologies
 
-- GPT-f: "GPT-f: Generative Language Modeling for Automated Theorem Proving" [2021-05] [paper]
-- miniF2F: "miniF2F: A Cross-System Benchmark for Formal Olympiad-Level Mathematics" [2022-09] [paper]
-- COPRA: "COPRA: COllaborative PRoof Assistant with GPT-4" [2024-02] [paper]
+*Methods for training and fine-tuning LLMs for improved mathematical reasoning*
+
+- **RLHF**: "Training language models to follow instructions with human feedback" [2022-05] [[paper](https://arxiv.org/abs/2203.02155)]
+
+- **DPO**: "Direct Preference Optimization: Your Language Model is Secretly a Reward Model" [2023-05] [[paper](https://arxiv.org/abs/2305.18290)]
+
+- **Step-DPO**: "Step-DPO: Step-wise Preference Optimization for Long-chain Reasoning of LLMs" [2023-11] [[paper](https://arxiv.org/abs/2310.06671)]
+
+- **GRPO**: "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models" [2024-02] [[paper](https://arxiv.org/abs/2402.03300)]
+
+- **Process Supervision**: "AlphaMath Almost Zero: Process Supervision without Process" [2023-12] [[paper](https://arxiv.org/abs/2312.00481)]
+
+- **Specialized Pre-training**: "Rho-1: Not All Tokens Are What You Need" [2023-10] [[paper](https://arxiv.org/abs/2310.11715)]
+
+- **Data Generation**: "MathScale: Scaling Instruction Tuning for Mathematical Reasoning" [2023-12] [[paper](https://arxiv.org/abs/2312.17120)]
+
+- **Knowledge Distillation**: "JiuZhang3.0: Efficiently Improving Mathematical Reasoning by Training Small Data Synthesis Models" [2023-10] [[paper](https://arxiv.org/abs/2310.06692)]
+
+### 3.3 Technical Implementations
+
+*Implementation details and techniques that impact mathematical reasoning performance*
+
+- **Iterative Improvement**: "Building Math Agents with Multi-Turn Iterative Preference Learning" [2023-10] [[paper](https://arxiv.org/abs/2310.03731)]
+
+- **Test-Time Scaling**: "Mathematical Discoveries from Program Search with Large Language Models" [2023-11] [[paper](https://arxiv.org/abs/2311.13444)]
+
+- **Monte Carlo Methods**: "Monte Carlo Tree Search Boosts Reasoning via Iterative Preference Learning" [2023-10] [[paper](https://arxiv.org/abs/2310.14197)]
+
+- **Output Space Shaping**: "ToRA: A Tool-Integrated Reasoning Agent for Mathematical Problem Solving" [2023-11] [[paper](https://arxiv.org/abs/2309.17452)]
+
+- **Selective Loss Functions**: "Rho-1: Not All Tokens Are What You Need" [2023-10] [[paper](https://arxiv.org/abs/2310.11715)]
+
+- **Code Interpreters**: "Solving Challenging Math Word Problems Using GPT-4 Code Interpreter with Code-Based Self-Verification" [2023-08] [[paper](https://arxiv.org/abs/2308.07921)]
+
+## 4. Mathematical Domains and Applications
+
+*Different mathematical domains and applications where LLMs are applied*
+
+### 4.1 Word Problems
+
+- **GSM8K Solving**: "Training Verifiers to Solve Math Word Problems" [2021-10] [[paper](https://arxiv.org/abs/2110.14168)]
+
+- **Scratchpad Reasoning**: "Show Your Work: Scratchpads for Intermediate Computation with Language Models" [2021-12] [[paper](https://arxiv.org/abs/2112.00114)]
+
+- **Pseudo-Dual Learning**: "Pseudo-Dual Learning: Solving Math Word Problems with Reexamination" [2023-10] [[paper](https://arxiv.org/abs/2310.04292)]
+
+- **Symbolic Reasoning**: "Reasoning in Large Language Models Through Symbolic Math Word Problems" [2023-05] [[paper](https://arxiv.org/abs/2305.20050)]
+
+### 4.2 Formal Mathematics and Theorem Proving
+
+- **GPT-f**: "GPT-f: Generative Language Modeling for Automated Theorem Proving" [2021-05] [[paper](https://arxiv.org/abs/2009.03393)]
+
+- **miniF2F**: "miniF2F: A Cross-System Benchmark for Formal Olympiad-Level Mathematics" [2022-09] [[paper](https://arxiv.org/abs/2109.00110)]
+
+- **COPRA**: "COPRA: COllaborative PRoof Assistant with GPT-4" [2024-02] [[paper](https://arxiv.org/abs/2402.10108)]
+
+- **Formal Mathematics**: "Formal Mathematical Reasoning: A New Frontier in AI" [2023-11] [[paper](https://arxiv.org/abs/2306.03544)]
+
+- **Llemma**: "Llemma: An Open Language Model For Mathematics" [2023-10] [[paper](https://arxiv.org/abs/2310.10631)]
 
 ### 4.3 Geometry Problems
 
-- AlphaGeometry: "Solving Olympiad Geometry without Human Demonstrations" [2024-01] [paper]
-- UniGeo: "Unifying Geometry Logical Reasoning via Reformulating Mathematical Expression" [2022-10] [paper]
-- Inter-GPS: "Inter-GPS: Interpretable Geometry Problem Solving with Formal Language and Symbolic Reasoning" [2021-06] [paper]
+- **AlphaGeometry**: "Solving Olympiad Geometry without Human Demonstrations" [2024-01] [[paper](https://www.nature.com/articles/s41586-023-06747-5)]
 
-## 5. Evaluation and Benchmarks
+- **UniGeo**: "Unifying Geometry Logical Reasoning via Reformulating Mathematical Expression" [2022-10] [[paper](https://arxiv.org/abs/2210.01196)]
 
-*Evaluation methodologies and benchmark datasets*
+- **Inter-GPS**: "Inter-GPS: Interpretable Geometry Problem Solving with Formal Language and Symbolic Reasoning" [2021-06] [[paper](https://arxiv.org/abs/2105.04166)]
 
-- MATH: "Measuring Mathematical Problem Solving With the MATH Dataset" [2021-03] [paper]
+### 4.4 Educational Mathematics
 
-- GSM8K: "Training Verifiers to Solve Math Word Problems" [2021-10] [paper]
+- **Early Education**: "CMATH: Can Your Language Model Pass Chinese Elementary School Math Test?" [2023-06] [[paper](https://arxiv.org/abs/2306.16636)]
 
-- MathQA: "MathQA: Towards Interpretable Math Word Problem Solving with Operation-Based Formalisms" [2022-05] [paper]
+- **Educational Applications**: "Three Questions Concerning the Use of Large Language Models to Facilitate Mathematics Learning" [2023-10] [[paper](https://arxiv.org/abs/2310.03078)]
 
-- GeomVerse: "GeomVerse: A Systematic Evaluation of Large Models for Geometric Reasoning" [2023-12] [paper]
+- **Pre-service Teachers**: "Exploring Pre-service Teachers' Perceptions of Large Language Models-Generated Hints in Online Mathematics Learning" [2023-06] [[paper](https://arxiv.org/abs/2306.17129)]
 
-- MathVerse: "MathVerse: Assessing Visual Mathematical Understanding in Multimodal LLMs" [2024-04] [paper]
+### 4.5 Applied Mathematics
 
-- ErrorRadar: "ErrorRadar: Evaluating the Multimodal Error Detection of LLMs in Educational Settings" [2024-03] [paper]
+- **Multidisciplinary Reasoning**: "Solving Quantitative Reasoning Problems with Language Models" [2023-05] [[paper](https://arxiv.org/abs/2206.14858)]
 
-- CHAMP: "CHAMP: Mathematical Reasoning with Chain of Thought in Large Language Models" [2024-05] [paper]
+- **Competition-Level Problems**: "OlympiadBench: A Challenging Benchmark for Promoting AGI with Olympiad-Level Bilingual Multimodal Scientific Problems" [2023-11] [[paper](https://arxiv.org/abs/2311.07575)]
 
-- ROBUSTMATH: "MATHATTACK: Attacking Large Language Models Towards Math Solving Ability" [2023-09] [paper]
-- CMATH: "CMATH: Can Your Language Model Pass Chinese Elementary School Math Test?" [2023-06] [paper]
+## 5. Evaluation, Benchmarks and Datasets
+
+*Benchmarks, datasets, and evaluation methodologies for mathematical LLMs*
+
+### 5.1 General Mathematical Benchmarks
+
+- **MATH Dataset**: "Measuring Mathematical Problem Solving With the MATH Dataset" [2021-03] [[paper](https://arxiv.org/abs/2103.03874)]
+
+- **GSM8K Dataset**: "Training Verifiers to Solve Math Word Problems" [2021-10] [[paper](https://arxiv.org/abs/2110.14168)]
+
+- **LILA**: "LILA: A Unified Benchmark for Mathematical Reasoning" [2022-10] [[paper](https://arxiv.org/abs/2210.17517)]
+
+- **CHAMP**: "CHAMP: Mathematical Reasoning with Chain of Thought in Large Language Models" [2024-05] [[paper](https://arxiv.org/abs/2405.19254)]
+
+### 5.2 Domain-Specific Benchmarks
+
+- **MathQA**: "MathQA: Towards Interpretable Math Word Problem Solving with Operation-Based Formalisms" [2022-05] [[paper](https://aclanthology.org/N19-1245/)]
+
+- **GeomVerse**: "GeomVerse: A Systematic Evaluation of Large Models for Geometric Reasoning" [2023-12] [[paper](https://arxiv.org/abs/2312.12241)]
+
+- **TABMWP**: "Dynamic Prompt Learning via Policy Gradient for Semi-structured Mathematical Reasoning" [2023-01] [[paper](https://arxiv.org/abs/2209.14610)]
+
+- **AMPS**: "Measuring Mathematical Problem Solving With the MATH Dataset" [2021-03] [[paper](https://arxiv.org/abs/2103.03874)]
+
+- **ROBUSTMATH**: "MATHATTACK: Attacking Large Language Models Towards Math Solving Ability" [2023-09] [[paper](https://arxiv.org/abs/2309.05690)]
+
+### 5.3 Multimodal Mathematics Datasets
+
+- **MATHVISTA**: "MathVista: Evaluating Mathematical Reasoning of Foundation Models in Visual Contexts" [2023-10] [[paper](https://arxiv.org/abs/2310.02255)]
+
+- **MathVerse**: "MathVerse: Assessing Visual Mathematical Understanding in Multimodal LLMs" [2024-04] [[paper](https://arxiv.org/abs/2404.13834)]
+
+- **ErrorRadar**: "ErrorRadar: Evaluating the Multimodal Error Detection of LLMs in Educational Settings" [2024-03] [[paper](https://arxiv.org/abs/2403.03894)]
+
+- **MathV360K**: "Math-LLaVA: A Multimodal Math QA Dataset with 360K Instances" [2024-04] [[paper](https://arxiv.org/abs/2404.02693)]
+
+### 5.4 Instruction Tuning Datasets
+
+- **OpenMathInstruct-1**: "OpenMathInstruct-1: A 1.8M Math Instruction Tuning Dataset" [2024-03] [[paper](https://arxiv.org/abs/2402.10176)]
+
+- **OpenMathInstruct-2**: "OpenMathInstruct-2: Accelerating AI for Math with Massive Open-Source Instruction Data" [2023-10] [[paper](https://arxiv.org/abs/2310.12591)]
+
+- **MATH-Instruct**: "Mammoth: Building Math Generalist Models Through Hybrid Instruction Tuning" [2023-09] [[paper](https://arxiv.org/abs/2309.05653)]
+
+- **MAVIS-Instruct**: "MAVIS: Multimodal Automatic Visual Instruction Synthesis for Math Problem Solving" [2024-04] [[paper](https://arxiv.org/abs/2404.04473)]
 
 ## 6. Tools and Libraries
 
 *Software tools and frameworks for mathematical LLMs*
 
-- LPML: "LPML: LLM-Prompting Markup Language for Mathematical Reasoning" [2023-09] [paper]
-- Math-CodeInterpreter: "Solving Challenging Math Word Problems Using GPT-4 Code Interpreter with Code-Based Self-Verification" [2023-08] [paper]
-- MathPrompter: "MathPrompter: Mathematical Reasoning Using Large Language Models" [2023-07] [paper]
+- **LPML**: "LPML: LLM-Prompting Markup Language for Mathematical Reasoning" [2023-09] [[paper](https://arxiv.org/abs/2309.04269)]
 
-## 7. Datasets
+- **Math-CodeInterpreter**: "Solving Challenging Math Word Problems Using GPT-4 Code Interpreter with Code-Based Self-Verification" [2023-08] [[paper](https://arxiv.org/abs/2308.07921)]
 
-*Datasets for training and evaluating mathematical capabilities*
+- **MathPrompter**: "MathPrompter: Mathematical Reasoning Using Large Language Models" [2023-07] [[paper](https://arxiv.org/abs/2303.05398)]
 
-- MATH Dataset: "Measuring Mathematical Problem Solving With the MATH Dataset" [2021-03] [paper]
+- **BEATS**: "BEATS: Optimizing LLM Mathematical Capabilities with BackVerify and Adaptive Disambiguate based Efficient Tree Search" [2023-10] [[paper](https://arxiv.org/abs/2310.04344)]
 
-- GSM8K Dataset: "Training Verifiers to Solve Math Word Problems" [2021-10] [paper]
+- **rStar-Math**: "rStar-Math: Small LLMs Can Master Math Reasoning with Self-Evolved Deep Thinking" [2023-10] [[paper](https://arxiv.org/abs/2310.14570)]
 
-- OpenMathInstruct-1: "OpenMathInstruct-1: A 1.8M Math Instruction Tuning Dataset" [2024-03] [paper]
+- **BoostStep**: "BoostStep: Boosting mathematical capability of Large Language Models via improved single-step reasoning" [2023-10] [[paper](https://arxiv.org/abs/2310.08573)]
 
-- MAVIS-Instruct: "MAVIS: Multimodal Automatic Visual Instruction Synthesis for Math Problem Solving" [2024-04] [paper]
+## 7. Analysis, Limitations and Future Directions
 
-- MathV360K: "Math-LLaVA: A Multimodal Math QA Dataset with 360K Instances" [2024-04] [paper]
+*Research on capabilities, limitations, and future directions of LLMs for mathematics*
 
-- AMPS: "Measuring Mathematical Problem Solving With the MATH Dataset" [2021-03] [paper]
-- MATH-Instruct: "Mammoth: Building Math Generalist Models Through Hybrid Instruction Tuning" [2023-09] [paper]
-- TABMWP: "Dynamic Prompt Learning via Policy Gradient for Semi-structured Mathematical Reasoning" [2023-01] [paper]
-- LILA: "LILA: A Unified Benchmark for Mathematical Reasoning" [2022-10] [paper]
-- MATHVISTA: "MathVista: Evaluating Mathematical Reasoning of Foundation Models in Visual Contexts" [2023-10] [paper]
+### 7.1 Capability Analysis
 
-## 8. Analysis and Limitations
+- **Model Analysis**: "Common 7B Language Models Already Possess Strong Math Capabilities" [2023-10] [[paper](https://arxiv.org/abs/2310.04560)]
 
-*Research on the capabilities and limitations of LLMs for mathematics*
+- **Scaling Relationships**: "Scaling Relationship on Learning Mathematical Reasoning with Large Language Models" [2023-10] [[paper](https://arxiv.org/abs/2310.07177)]
 
-- Robustness Analysis: "A Causal Framework to Quantify the Robustness of Mathematical Reasoning with Language Models" [2023-05] [paper]
-- Tokenization Impact: "How Well Do Large Language Models Perform in Arithmetic Tasks?" [2023-04] [paper]
-- Educational Perspective: "Three Questions Concerning the Use of Large Language Models to Facilitate Mathematics Learning" [2023-10] [paper]
-- Error Analysis: "Learning from Mistakes Makes LLM Better Reasoner" [2023-10] [paper]
+- **Tokenization Impact**: "How Well Do Large Language Models Perform in Arithmetic Tasks?" [2023-04] [[paper](https://arxiv.org/abs/2304.02015)]
 
-## 9. Emerging Research Directions
+### 7.2 Known Limitations
 
-*Cutting-edge research areas in mathematical LLMs*
+- **Robustness Analysis**: "A Causal Framework to Quantify the Robustness of Mathematical Reasoning with Language Models" [2023-05] [[paper](https://arxiv.org/abs/2305.14291)]
 
-- Human-Centric Math LLMs: "Exploring Pre-service Teachers' Perceptions of Large Language Models-Generated Hints in Online Mathematics Learning" [2023-06] [paper]
-- Cross-Modal Reasoning: "Math-PUMA: Progressive Upward Multimodal Alignment for Math Reasoning Enhancement" [2024-04] [paper]
-- Test-Time Scaling: "Mathematical Discoveries from Program Search with Large Language Models" [2023-11] [paper]
-- Continual Learning: "Learning from Mistakes Makes LLM Better Reasoner" [2023-10] [paper]
+- **Error Analysis**: "Learning from Mistakes Makes LLM Better Reasoner" [2023-10] [[paper](https://arxiv.org/abs/2310.13522)]
+
+- **Attacks on Math Ability**: "MATHATTACK: Attacking Large Language Models Towards Math Solving Ability" [2023-09] [[paper](https://arxiv.org/abs/2309.05690)]
+
+### 7.3 Emerging Research Directions
+
+- **Cross-Modal Reasoning**: "Math-PUMA: Progressive Upward Multimodal Alignment for Math Reasoning Enhancement" [2024-04] [[paper](https://arxiv.org/abs/2404.01166)]
+
+- **Human-Centric Design**: "Exploring Pre-service Teachers' Perceptions of Large Language Models-Generated Hints in Online Mathematics Learning" [2023-06] [[paper](https://arxiv.org/abs/2306.17129)]
+
+- **Continual Learning**: "Learning from Mistakes Makes LLM Better Reasoner" [2023-10] [[paper](https://arxiv.org/abs/2310.13522)]
+
+- **Program Search**: "Mathematical Discoveries from Program Search with Large Language Models" [2023-11] [[paper](https://arxiv.org/abs/2311.13444)]
 
 ## How to Contribute
 
