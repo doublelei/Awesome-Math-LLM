@@ -8,39 +8,37 @@ A curated list of resources dedicated to Large Language Models (LLMs) for mathem
 
 ## Table of Contents
 
-## Table of Contents
-
-- [1. Surveys & Overviews](#1-surveys--overviews)
+- [1. 📚 Surveys & Overviews](#surveys--overviews)
   - [1.1 Related Awesome Lists](#11-related-awesome-lists)
-- [2. Mathematical Tasks & Application Domains](#2-mathematical-tasks--application-domains)
+- [2. 🧮 Mathematical Tasks & Application Domains](#2-mathematical-tasks--application-domains)
   - [2.1 Arithmetic & Word Problems](#21-arithmetic--word-problems)
   - [2.2 Algebra, Geometry, Calculus, etc.](#22-algebra-geometry-calculus-etc)
   - [2.3 Competition Math](#23-competition-math)
   - [2.4 Formal Theorem Proving](#24-formal-theorem-proving)
   - [2.5 Optimization & Control](#25-optimization--control)
   - [2.6 Other Specific Applications](#26-other-specific-applications)
-- [3. Core Reasoning & Problem-Solving Techniques](#3-core-reasoning--problem-solving-techniques)
+- [3. 🧠 Core Reasoning & Problem-Solving Techniques](#3-core-reasoning--problem-solving-techniques)
   - [3.1 Chain-of-Thought & Prompting Strategies](#31-chain-of-thought--prompting-strategies)
   - [3.2 Search & Planning](#32-search--planning)
   - [3.3 Reinforcement Learning & Reward Modeling](#33-reinforcement-learning--reward-modeling)
   - [3.4 Self-Improvement & Self-Training](#34-self-improvement--self-training)
   - [3.5 Tool Use & Augmentation](#35-tool-use--augmentation)
   - [3.6 Neurosymbolic Methods & Solver Integration](#36-neurosymbolic-methods--solver-integration)
-- [4. Multimodal Mathematical Reasoning](#4-multimodal-mathematical-reasoning)
-- [5. Models](#5-models)
+- [4. 👁️ Multimodal Mathematical Reasoning](#4-multimodal-mathematical-reasoning)
+- [5. 🤖 Models](#5-models)
   - [5.1 Math-Specialized LLMs](#51-math-specialized-llms)
   - [5.2 Reasoning-Focused LLMs](#52-reasoning-focused-llms)
   - [5.3 Leading General LLMs](#53-leading-general-llms)
-- [6. Datasets & Benchmarks](#6-datasets--benchmarks)
+- [6. 📊 Datasets & Benchmarks](#6-datasets--benchmarks)
   - [6.1 Problem Solving Benchmarks](#61-problem-solving-benchmarks)
   - [6.2 Theorem Proving Benchmarks](#62-theorem-proving-benchmarks)
   - [6.3 Multimodal Benchmarks](#63-multimodal-benchmarks)
   - [6.4 Training Datasets](#64-training-datasets)
   - [6.5 Augmented / Synthetic Datasets](#65-augmented--synthetic-datasets)
-- [7. Tools & Libraries](#7-tools--libraries)
-- [8. Contributing](#8-contributing)
-- [9. Citation](#9-citation)
-- [10. License](#10-license)
+- [7. 🛠️ Tools & Libraries](#7-tools--libraries)
+- [8. 🤝 Contributing](#8-contributing)
+- [9. 📄 Citation](#9-citation)
+- [10. ⚖️ License](#10-license)
 
 ---
 
@@ -52,7 +50,7 @@ A curated list of resources dedicated to Large Language Models (LLMs) for mathem
 
 ---
 
-## 1. Surveys & Overviews
+## 1. 📚 Surveys & Overviews
 
 *Meta-analyses and survey papers about LLMs for mathematics.*
 
@@ -72,7 +70,7 @@ A curated list of resources dedicated to Large Language Models (LLMs) for mathem
 * "Awesome System 2 Reasoning LLM" ([GitHub](https://github.com/zzli2022/Awesome-System2-Reasoning-LLM))
 * "Awesome Multimodal LLM for Math/STEM" ([GitHub](https://github.com/InfiMM/Awesome-Multimodal-LLM-for-Math-STEM))
 
-## 2. Mathematical Tasks & Foundational Capabilities
+## 2. 🧮 Mathematical Tasks & Foundational Capabilities
 
 > This section outlines the fundamental capabilities LLMs need for mathematics (Calculation & Representation) and the major mathematical reasoning domains they are applied to. Resources are often categorized by the primary domain addressed.
 
@@ -142,7 +140,7 @@ A curated list of resources dedicated to Large Language Models (LLMs) for mathem
 * **CoqGym:** "Learning to Prove Theorems via Interacting with Proof Assistants" ([Paper](https://arxiv.org/abs/1905.09381)) - *(May 2019)*
 * **DeepMath:** "DeepMath - Deep Sequence Models for Premise Selection" ([Paper](https://arxiv.org/abs/1606.04442)) - *(June 2016)*
 
-## 3. Core Reasoning & Problem-Solving Techniques
+## 3. 🧠 Core Reasoning & Problem-Solving Techniques
 
 > This section details the core techniques and methodologies used by LLMs to reason and solve mathematical problems ('HOW' problems are solved), often applicable across multiple domains.
 
@@ -263,7 +261,7 @@ A curated list of resources dedicated to Large Language Models (LLMs) for mathem
 * **Inter-GPS:** "Inter-GPS: Interpretable Geometry Problem Solving with Formal Language and Symbolic Reasoning" ([Paper](https://arxiv.org/abs/2105.04165)) - *(May 2021)*
 * **GPT-f:** "Generative Language Modeling for Automated Theorem Proving" ([Paper](https://arxiv.org/abs/2009.03393)) - *(September 2020)*
 
-## 4. Multimodal Mathematical Reasoning
+## 4. 👁️ Multimodal Mathematical Reasoning
 
 > This section focuses on the specific challenges and approaches for mathematical reasoning when non-textual information (images, diagrams, tables) is involved.
 
@@ -280,7 +278,7 @@ A curated list of resources dedicated to Large Language Models (LLMs) for mathem
 
 * *Models (Examples):* GPT-4V, Gemini Pro Vision, Qwen-VL, LLaVA variants (LLaVA-o1), AtomThink, M-STAR, GLM-4V (See Section 5.3 for details)
 
-## 5. Models
+## 5. 🤖 Models
 
 > This section lists the specific Large Language Models relevant to mathematical tasks.
 > *Note: Classification and details partly informed by Table 1 in survey arXiv:2503.17726.*
@@ -419,7 +417,7 @@ A curated list of resources dedicated to Large Language Models (LLMs) for mathem
 * **Grok 1:** "Grok-1: Release Announcement" ([Blog Post](https://x.ai/blog/grok-os)) - *(March 2024)*
 * **InternLM:** "InternLM: A Multilingual Language Model with Progressively Enhanced Capabilities" ([Paper](https://arxiv.org/abs/2309.01381)) - *(September 2023)*
 
-## 6. Datasets & Benchmarks
+## 6. 📊 Datasets & Benchmarks
 
 > This section lists resources for training and evaluating mathematical LLMs.
 > *Note: Comprehensive listing and categorization heavily informed by Table 3 in survey arXiv:2503.17726.*
@@ -541,7 +539,7 @@ A curated list of resources dedicated to Large Language Models (LLMs) for mathem
 * **Aggregate Dataset (for Minerva):** "Solving Quantitative Reasoning Problems With Language Models" ([Paper](https://arxiv.org/abs/2206.14858)) - *(June 2022)*
 * **NaturalProofs-Gen Dataset:** "NaturalProofs: Mathematical Theorem Proving in Natural Language" ([Paper](https://arxiv.org/abs/2105.07101)) ([GitHub](https://github.com/wellecks/naturalproofs)) - *(May 2021)*
 
-## 7. Tools & Libraries
+## 7. 🛠️ Tools & Libraries
 
 *Software tools, frameworks, and libraries relevant for working with LLMs in mathematics.*
 
@@ -557,11 +555,11 @@ A curated list of resources dedicated to Large Language Models (LLMs) for mathem
 * **ITP (Isabelle):** "Isabelle" ([Website](https://isabelle.in.tum.de/))
 * **ITP (Coq):** "The Coq Proof Assistant" ([Website](https://coq.inria.fr/))
 
-## 8. Contributing
+## 8. 🤝 Contributing
 
 We are looking for contributors to help build this resource. Please read the [contribution guidelines](CONTRIBUTING.md) before submitting a pull request.
 
-## 9. Citation
+## 9. 📄 Citation
 
 If you find this repository useful, please consider citing:
 
@@ -574,3 +572,8 @@ If you find this repository useful, please consider citing:
   journal = {GitHub Repository},
   howpublished = {\url{[https://github.com/doublelei/Awesome-Math-LLM](https://github.com/doublelei/Awesome-Math-LLM)}}
 }
+```
+
+## 10. ⚖️ License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
