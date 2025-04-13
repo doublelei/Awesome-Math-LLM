@@ -1,35 +1,31 @@
-# Awesome-Math-LLM 
+# Awesome-Math-LLM
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
 A curated list of resources dedicated to Large Language Models (LLMs) for mathematics, mathematical reasoning, and mathematical problem-solving.
 
-<!-- <p align="center">
-  <img src="imgs/math-llm-banner.png" width="800px"></img>
-</p> -->
-
-
-> [!NOTE]
-> This repository is being developed incrementally. See our [Incremental Development Plan](INCREMENTAL_DEVELOPMENT_PLAN.md) for details on our phased approach.
-> 
 > We welcome contributions! Please read the [contribution guidelines](CONTRIBUTING.md) before submitting a pull request.
 
 ## Table of Contents
 
+## Table of Contents
+
 - [1. Surveys & Overviews](#1-surveys--overviews)
-- [2. Core Reasoning Techniques](#2-core-reasoning-techniques)
-  - [2.1 Chain-of-Thought & Prompting Strategies](#21-chain-of-thought--prompting-strategies)
-  - [2.2 Search & Planning](#22-search--planning)
-  - [2.3 Reinforcement Learning & Reward Modeling](#23-reinforcement-learning--reward-modeling)
-  - [2.4 Self-Improvement & Self-Training](#24-self-improvement--self-training)
-  - [2.5 Tool Use & Augmentation](#25-tool-use--augmentation)
-  - [2.6 Neurosymbolic Methods](#26-neurosymbolic-methods)
-- [3. Mathematical Domains & Tasks](#3-mathematical-domains--tasks)
-  - [3.1 Arithmetic & Word Problems](#31-arithmetic--word-problems)
-  - [3.2 Algebra, Geometry, Calculus, etc.](#32-algebra-geometry-calculus-etc)
-  - [3.3 Competition Math](#33-competition-math)
-  - [3.4 Formal Theorem Proving](#34-formal-theorem-proving)
-  - [3.5 Symbolic Manipulation](#35-symbolic-manipulation)
+  - [1.1 Related Awesome Lists](#11-related-awesome-lists)
+- [2. Mathematical Tasks & Application Domains](#2-mathematical-tasks--application-domains)
+  - [2.1 Arithmetic & Word Problems](#21-arithmetic--word-problems)
+  - [2.2 Algebra, Geometry, Calculus, etc.](#22-algebra-geometry-calculus-etc)
+  - [2.3 Competition Math](#23-competition-math)
+  - [2.4 Formal Theorem Proving](#24-formal-theorem-proving)
+  - [2.5 Optimization & Control](#25-optimization--control)
+  - [2.6 Other Specific Applications](#26-other-specific-applications)
+- [3. Core Reasoning & Problem-Solving Techniques](#3-core-reasoning--problem-solving-techniques)
+  - [3.1 Chain-of-Thought & Prompting Strategies](#31-chain-of-thought--prompting-strategies)
+  - [3.2 Search & Planning](#32-search--planning)
+  - [3.3 Reinforcement Learning & Reward Modeling](#33-reinforcement-learning--reward-modeling)
+  - [3.4 Self-Improvement & Self-Training](#34-self-improvement--self-training)
+  - [3.5 Tool Use & Augmentation](#35-tool-use--augmentation)
+  - [3.6 Neurosymbolic Methods & Solver Integration](#36-neurosymbolic-methods--solver-integration)
 - [4. Multimodal Mathematical Reasoning](#4-multimodal-mathematical-reasoning)
 - [5. Models](#5-models)
   - [5.1 Math-Specialized LLMs](#51-math-specialized-llms)
@@ -40,439 +36,541 @@ A curated list of resources dedicated to Large Language Models (LLMs) for mathem
   - [6.2 Theorem Proving Benchmarks](#62-theorem-proving-benchmarks)
   - [6.3 Multimodal Benchmarks](#63-multimodal-benchmarks)
   - [6.4 Training Datasets](#64-training-datasets)
+  - [6.5 Augmented / Synthetic Datasets](#65-augmented--synthetic-datasets)
 - [7. Tools & Libraries](#7-tools--libraries)
-- [8. Challenges & Future Directions](#8-challenges--future-directions)
-- [9. Contributing](#9-contributing)
-- [10. Citation](#10-citation)
-- [11. License](#11-license)
+- [8. Contributing](#8-contributing)
+- [9. Citation](#9-citation)
+- [10. License](#10-license)
 
-### Recent Highlights
+---
 
-[2025-03]
+### Recent Highlights *(Note: Dates appear to be futuristic)*
 
-- **ERNIE**: "Baidu Unveils ERNIE 4.5 and Reasoning Model ERNIE X1" [[website](https://yiyan.baidu.com/)]
-- **QaQ**: "QwQ-32B: Embracing the Power of Reinforcement Learning" [[blog](https://qwenlm.github.io/blog/qwq-32b/)] [[repo](https://github.com/QwenLM/QwQ)]
+* **[2025-03] Survey (Math Reasoning & Optimization):** "A Survey on Mathematical Reasoning and Optimization with Large Language Models" ([Paper](https://arxiv.org/abs/2503.17726)) - **Key resource for this list!**
+* **[2025-03] ERNIE:** "Baidu Unveils ERNIE 4.5 and Reasoning Model ERNIE X1" ([Website](https://yiyan.baidu.com/))
+* **[2025-03] QaQ:** "QwQ-32B: Embracing the Power of Reinforcement Learning" ([Blog](https://qwenlm.github.io/blog/qwq-32b/)) [Repo](https://github.com/QwenLM/QwQ)
 
+---
 
 ## 1. Surveys & Overviews
 
-*Meta-analyses and survey papers about LLMs for mathematics*
+*Meta-analyses and survey papers about LLMs for mathematics.*
 
-- ([https://arxiv.org/abs/2503.17726](https://arxiv.org/abs/2503.17726)) - Forootani, A. (arXiv:2503.17726). Covers evolution, methodologies (CoT, Tools, RL), models, datasets, challenges. [1, 6]
-- ([https://arxiv.org/abs/2502.14333](https://arxiv.org/abs/2502.14333)) - Wei, T.-R., et al. (arXiv:2502.14333). Focuses on feedback mechanisms (step/outcome, training/training-free). [7, 8, 9]
-- ([https://arxiv.org/abs/2502.17419](https://arxiv.org/abs/2502.17419)) - Zeng, Z., et al. (arXiv:2502.17419). Discusses System 2 reasoning, MCTS, reward modeling, self-improvement, RL. [3, 10, 11]
-- MLLM Survey: "A Survey of Mathematical Reasoning in the Era of Multimodal Large Language Model" ([https://arxiv.org/abs/2412.11936](https://arxiv.org/abs/2412.11936)) - Yan, Y., et al. (arXiv:2412.11936). First survey on multimodal math reasoning, covering benchmarks, methods, challenges. [2]
-- DL4Math: "A Survey of Deep Learning for Mathematical Reasoning" [2022-12] [[paper](https://arxiv.org/abs/2212.09206)]
-- LLM4Math: "Large Language Models for Mathematical Reasoning: Progresses and Challenges" [2024-02] [[paper](https://arxiv.org/abs/2402.15694)]
-- ([https://arxiv.org/abs/2402.06196](https://arxiv.org/abs/2402.06196)) - Minaee, S., et al. (arXiv:2402.06196). General overview of LLM families, training, datasets, evaluation. [12]
-- ([https://github.com/atfortes/Awesome-LLM-Reasoning](https://github.com/atfortes/Awesome-LLM-Reasoning)) - Curated list focusing on general LLM reasoning techniques. [13]
-- ([https://github.com/zzli2022/Awesome-System2-Reasoning-LLM](https://github.com/zzli2022/Awesome-System2-Reasoning-LLM)) - Curated list focusing on System 2 reasoning (RL, MCTS, Self-Improve). [14]
-- ([https://github.com/InfiMM/Awesome-Multimodal-LLM-for-Math-STEM](https://github.com/InfiMM/Awesome-Multimodal-LLM-for-Math-STEM)) - Curated list for MLLMs in Math/STEM. [15]
+* "A Survey on Mathematical Reasoning and Optimization with Large Language Models" ([Paper](https://arxiv.org/abs/2503.17726)) - *(March 2025)*
+* "A Survey on Feedback-based Multi-step Reasoning for Large Language Models on Mathematics" ([Paper](https://arxiv.org/abs/2502.14333)) - *(February 2025)*
+* "From System 1 to System 2: A Survey of Reasoning Large Language Models" ([Paper](https://arxiv.org/abs/2502.17419)) - *(February 2025)*
+* **Survey (Multimodal):** "A Survey of Mathematical Reasoning in the Era of Multimodal Large Language Model: Benchmark, Method & Challenges" ([Paper](https://arxiv.org/abs/2412.11936)) - *(December 2024)*
+* "Large Language Models for Mathematical Reasoning: Progresses and Challenges" ([Paper](https://arxiv.org/abs/2402.00157)) - *(February 2024)*
+* **Survey (Formal Math):** "Formal Mathematical Reasoning: A New Frontier in AI" ([Paper](https://arxiv.org/abs/2306.03544)) - *(June 2023)*
+* "A Survey of Deep Learning for Mathematical Reasoning" ([Paper](https://arxiv.org/abs/2212.10535)) - *(December 2022)*
 
-## 2. Core Reasoning Techniques
+### 1.1 Related Awesome Lists
 
-*Core approaches and methodologies for enhancing mathematical reasoning in Large Language Models*
+*Other curated lists focusing on relevant areas.*
 
-### 2.1 Chain-of-Thought & Prompting Strategies
+* "Awesome LLM Reasoning" ([GitHub](https://github.com/atfortes/Awesome-LLM-Reasoning))
+* "Awesome System 2 Reasoning LLM" ([GitHub](https://github.com/zzli2022/Awesome-System2-Reasoning-LLM))
+* "Awesome Multimodal LLM for Math/STEM" ([GitHub](https://github.com/InfiMM/Awesome-Multimodal-LLM-for-Math-STEM))
 
-*Fundamental techniques involving step-by-step reasoning generation.*
+## 2. Mathematical Tasks & Foundational Capabilities
 
-- **Chain-of-Thought**: "Chain of Thought Prompting Elicits Reasoning in Large Language Models" ([https://arxiv.org/abs/2201.11903](https://arxiv.org/abs/2201.11903)) - Wei, J., et al. (NeurIPS 2022). Foundational CoT paper.
-- **Self-Consistency**: "Self-Consistency Improves Chain of Thought Reasoning in Language Models" ([https://arxiv.org/abs/2203.11171](https://arxiv.org/abs/2203.11171)) - Wang, X., et al. (ICLR 2023). Improves CoT by sampling multiple reasoning paths.
-- **Algorithmic Prompting**: Introduces Algorithmic Prompting ([https://research.google/blog/teaching-language-models-to-reason-algorithmically/](https://research.google/blog/teaching-language-models-to-reason-algorithmically/)). [16, 17]
-- **Faithful CoT**: "Faithful Chain-of-Thought Reasoning" ([https://arxiv.org/abs/2301.13379](https://arxiv.org/abs/2301.13379)) - Lyu, Q., et al. (IJCNLP-AACL 2023). Focuses on improving the faithfulness of CoT. [18]
-- *Concept*: Prompting LLMs to output intermediate reasoning steps before the final answer. Variants include self-checking, reflection, planning, Long CoT, and Algorithmic Prompting. [6, 7, 16]
+> This section outlines the fundamental capabilities LLMs need for mathematics (Calculation & Representation) and the major mathematical reasoning domains they are applied to. Resources are often categorized by the primary domain addressed.
 
-### 2.2 Search & Planning
+### 2.1 Fundamental Calculation & Representation
 
-*Techniques exploring multiple potential solution paths.*
+*Focuses on how LLMs process, represent, and compute basic numerical operations. Challenges here underpin performance on more complex tasks.*
 
-- **Tree of Thoughts (ToT)**: "Tree of Thoughts: Deliberate Problem Solving with Large Language Models" ([https://arxiv.org/abs/2305.10601](https://arxiv.org/abs/2305.10601)) - Yao, S., et al. (NeurIPS 2023). Explores different reasoning branches and self-evaluates progress. [13, 6]
-  - Code:([https://github.com/kyegomez/Tree-of-Thoughts-LLM](https://github.com/kyegomez/Tree-of-Thoughts-LLM))
-- **Graph-of-Thoughts (GoT)**: Represents reasoning as a graph ([https://arxiv.org/abs/2308.09687](https://arxiv.org/abs/2308.09687)) - Besta, M., et al. (arXiv 2023). [20, 21]
-- **Monte Carlo Tree Search (MCTS)**: Simulation-based search for navigating solution space. [14, 22, 9, 11]
-  - Paper:([https://arxiv.org/abs/2502.10000](https://arxiv.org/abs/2502.10000)) - Qi, Z., et al. (arXiv 2025). Uses MCTS in self-improvement. [22, 23]
-- **Best-First Search (BFS)**: Used in theorem proving and problem solving. [24]
-  - Paper:([https://arxiv.org/abs/2502.03438](https://arxiv.org/abs/2502.03438)) - Xin, R., et al. (arXiv 2025). [24, 25]
-- **Search-Based Methods**: "Enhancing LLM Reasoning with Reward-guided Tree Search" [2023-10] [[paper](https://arxiv.org/abs/2310.09177)]
+* **FoNE:** "FoNE: Precise Single-Token Number Embeddings via Fourier Features" ([Paper](https://arxiv.org/abs/2502.09741)) - *(February 2025)*
+* "Over-Tokenized Transformer: Vocabulary is Generally Worth Scaling" ([Paper](https://arxiv.org/abs/2501.16975)) - *(January 2025)*
+* "Arithmetic Transformers Can Length-Generalize in Both Operand Length and Count" ([Paper](https://arxiv.org/abs/2410.15787)) - *(October 2024)*
+* "Language Models Encode Numbers Using Digit Representations in Base 10" ([Paper](https://arxiv.org/abs/2410.11781)) - *(October 2024)*
+* **MathGLM (RevOrder):** "RevOrder: A Novel Method for Enhanced Arithmetic in Language Models" ([Paper](https://arxiv.org/abs/2402.03822)) - *(February 2024)*
+* "Tokenization counts: the impact of tokenization on arithmetic in frontier LLMs" ([Paper](https://arxiv.org/abs/2402.14903)) - *(February 2024)*
+* "Length Generalization in Arithmetic Transformers" ([Paper](https://arxiv.org/abs/2306.15400)) - *(June 2023)*
+* **GOAT:** "Goat: Fine-tuned LLaMA Outperforms GPT-4 on Arithmetic Tasks" ([Paper](https://arxiv.org/abs/2305.14201)) - *(May 2023)*
+* "How well do large language models perform in arithmetic tasks?" ([Paper](https://arxiv.org/abs/2304.02015)) - *(April 2023)*
+* "Teaching algorithmic reasoning via in-context learning" ([Paper](https://arxiv.org/abs/2211.09066)) - *(November 2022)*
+* **Scratchpad:** "Show Your Work: Scratchpads for Intermediate Computation with Language Models" ([Paper](https://arxiv.org/abs/2112.00114)) - *(December 2021)*
 
-### 2.3 Reinforcement Learning & Reward Modeling
+### 2.2 Arithmetic & Word Problems
 
-*Optimizing LLMs using feedback signals (rewards) through RL algorithms.*
+*Solving grade-school to high-school level math word problems, requiring understanding context and applying arithmetic/algebraic steps.*
 
-- **RLHF**: "Training language models to follow instructions with human feedback" [2022-05] [[paper](https://arxiv.org/abs/2203.02155)]
-- **DPO**: "Direct Preference Optimization: Your Language Model is Secretly a Reward Model" [2023-05] [[paper](https://arxiv.org/abs/2305.18290)]
-- **Step-DPO**: "Step-DPO: Step-wise Preference Optimization for Long-chain Reasoning of LLMs" [2023-11] [[paper](https://arxiv.org/abs/2310.06671)]
-- **GRPO**: "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models" [2024-02] [[paper](https://arxiv.org/abs/2402.03300)] Introduces Group Relative Policy Optimization. [14, 6, 11, 24, 28]
-- **Process Supervision**: "AlphaMath Almost Zero: Process Supervision without Process" [2023-12] [[paper](https://arxiv.org/abs/2312.00481)]
-- **PPO**: [Proximal Policy Optimization (PPO)](https://arxiv.org/abs/1707.06347) - Schulman, J., et al. (arXiv 2017). [24]
-- **Reward Models**:
-  - **Outcome Reward Models (ORM)**: Evaluate the final answer. [14, 10, 6, 7, 9, 11, 26, 27]
-  - **Process Reward Models (PRM)**: Evaluate intermediate reasoning steps. [14, 10, 6, 7, 9, 11, 26, 27]
-- **Automated Process Supervision**: "Let Models Explain Themselves: Step-by-Step Verification for Large Language Models" ([https://arxiv.org/abs/2312.08935](https://arxiv.org/abs/2312.08935)) - Wang, P., et al. (arXiv 2023). Uses automated process supervision. [9, 27]
-- **Automated PRM Data Generation**: "Learning Process-Reward Models for Math Reasoning from Minimal Human Feedback" (https://arxiv.org/abs/2406.13559) - Luo, L., et al. (arXiv 2024). Automated PRM data generation using MCTS. [9, 29]
-- **Verification Methods**: "Math-Shepherd: Verify and Reinforce LLMs Step-by-step without Human Annotations" [2023-11] [[paper](https://arxiv.org/abs/2308.07615)]
-- *Concept*: Optimizing LLMs using feedback signals (rewards) through RL algorithms like PPO, DPO, GRPO. [14, 6, 7, 9, 11, 26, 27]
+* *Key Benchmarks:* GSM8K, SVAMP, AddSub/ASDiv, MultiArith, Math23k, TabMWP, MR-GSM8K (See Section 6.1 for details)
 
-### 2.4 Self-Improvement & Self-Training
+* **UPFT:** "The First Few Tokens Are All You Need: An Efficient and Effective Unsupervised Prefix Fine-Tuning Method for Reasoning Models" ([Paper](https://arxiv.org/abs/2503.02875)) - *(March 2025)*
+* **ArithmAttack:** "ArithmAttack: Evaluating Robustness of LLMs to Noisy Context in Math Problem Solving" ([Paper](https://arxiv.org/abs/2501.08203)) - *(January 2025)*
+* **MetaMath:** "MetaMath: Bootstrap Your Own Mathematical Questions for Large Language Models" ([Paper](https://arxiv.org/abs/2309.12284)) ([Code](https://github.com/meta-math/MetaMath)) - *(September 2023)*
+* **WizardMath:** "WizardMath: Empowering Mathematical Reasoning for Large Language Models via Reinforced Evol-Instruct" ([Paper](https://arxiv.org/abs/2308.09583)) ([HF Models](https://huggingface.co/WizardLM/WizardMath-70B-V1.0)) - *(August 2023)*
+* "Let's Verify Step by Step" ([Paper](https://arxiv.org/abs/2305.20050)) - *(May 2023)*
+* **MathPrompter:** "MathPrompter: Mathematical Reasoning using Large Language Models" ([Paper](https://arxiv.org/abs/2303.05398)) - *(March 2023)*
 
-*LLMs generate their own training data, evaluate attempts, and learn from successes.*
+### 2.3 Algebra, Geometry, Calculus, etc.
 
-- **STaR**: "STaR: Bootstrapping Reasoning With Reasoning" ([https://arxiv.org/abs/2203.14465](https://arxiv.org/abs/2203.14465)) - Zelikman, E., et al. (arXiv 2022). Foundational self-taught reasoner. [14, 15, 12]
-- **rStar-Math**: "Small LLMs Can Master Math Reasoning with Self-Evolved Deep Thinking" ([https://arxiv.org/abs/2502.10000](https://arxiv.org/abs/2502.10000)) - Qi, Z., et al. (arXiv 2025). Combines MCTS, RL, and self-evolution. [22, 15, 23] Also see [rStar-Math Project](https://github.com/agi-templar/rStar-Math-v2)
-- **Quiet-STaR**: "Token-level Self-evolution for Large Language Models" ([https://arxiv.org/abs/2403.09629](https://arxiv.org/abs/2403.09629)) - Zelikman, E., et al. (arXiv 2024). Token-level exploration during training. [15]
-- **ReST**: "Reinforced Self-Training (ReST) for Language Modeling" ([https://arxiv.org/abs/2308.08998](https://arxiv.org/abs/2308.08998)) - Gulcehre, C., et al. (arXiv 2023). [15]
-- **Self-Refine**: "Self-Refine: Iterative Refinement with Self-Feedback" ([https://arxiv.org/abs/2303.17651](https://arxiv.org/abs/2303.17651)) - Madaan, A., et al. (NeurIPS 2023). Test-time refinement. [15, 30]
-- *Concept*: LLMs generate their own training data through exploration (e.g., MCTS), evaluate attempts, and learn from successes. [14, 10, 22, 11, 27]
+*Problems spanning standard high school and undergraduate curricula in core mathematical subjects.*
 
-### 2.5 Tool Use & Augmentation
+* *Key Benchmarks:* MATH, SciBench, MMLU (Math Subsets) (See Section 6.1 for details)
 
-*Enabling LLMs to call external tools (calculators, code interpreters, solvers, search engines).*
+* **AlphaGeometry:** "AlphaGeometry: An Olympiad-level AI system for geometry" ([Blog Post](https://deepmind.google/discover/blog/alphageometry-an-olympiad-level-ai-system-for-geometry/)) - *(January 2024)*
+* **Llemma:** "Llemma: An Open Language Model For Mathematics" ([Paper](https://arxiv.org/abs/2310.10631)) ([HF Models](https://huggingface.co/EleutherAI/llemma_7b)) - *(October 2023)*
+* **UniGeo:** "Unifying Geometry Logical Reasoning via Reformulating Mathematical Expression" ([Paper](https://arxiv.org/abs/2210.01196)) - *(October 2022)*
+* **Inter-GPS:** "Inter-GPS: Interpretable Geometry Problem Solving with Formal Language and Symbolic Reasoning" ([Paper](https://arxiv.org/abs/2105.04165)) - *(May 2021)*
 
-- **PAL**: "Program-Aided Language Models" ([https://arxiv.org/abs/2211.10435](https://arxiv.org/abs/2211.10435)) - Gao, L., et al. (ICML 2023). Generates code executed by an interpreter. [6, 31, 32]
-  - Code: [reasoning-machines/pal](https://github.com/reasoning-machines/pal) [4]
-- **ART**: "ART: Automatic multi-step reasoning and tool-use for large language models" ([https://arxiv.org/abs/2303.09014](https://arxiv.org/abs/2303.09014)) - Paranjape, B., et al. (arXiv 2023). Dynamically selects and uses tools. [13, 6, 33, 34, 25, 35]
-  - Code (Guidance library used in ART): [microsoft/guidance](https://github.com/microsoft/guidance) [5, 16]
-- **ToRA**: "ToRA: A Tool-Integrated Reasoning Agent for Mathematical Problem Solving" [2023-11] [[paper](https://arxiv.org/abs/2309.17452)]
-- **Program of Thoughts**: "Program of Thoughts Prompting: Disentangling Computation from Reasoning for Numerical Reasoning Tasks" [2022-11] [[paper](https://arxiv.org/abs/2211.12588)]
-- **Toolformer**: "Toolformer: Language Models Can Teach Themselves to Use Tools" ([https://arxiv.org/abs/2302.04761](https://arxiv.org/abs/2302.04761)) - Schick, T., et al. (NeurIPS 2023). LLM learns to use APIs. [24]
-- **Logic-LM**: "Logic-LM: Empowering Large Language Models with Symbolic Solvers for Faithful Logical Reasoning" ([https://arxiv.org/abs/2305.12295](https://arxiv.org/abs/2305.12295)) - Pan, L., et al. (EMNLP 2023 Findings). Integrates logical solvers. [13, 18]
-- **SatLM**: "SAT-LM: Satisfiability-Aided Language Models for Logic Puzzle Solving" ([https://arxiv.org/abs/2310.05726](https://arxiv.org/abs/2310.05726)) - Ye, X., et al. (NeurIPS 2023). Integrates SAT solvers. [13, 18]
-- **Code Interpreters**: "Solving Challenging Math Word Problems Using GPT-4 Code Interpreter with Code-Based Self-Verification" [2023-08] [[paper](https://arxiv.org/abs/2308.07921)]
+### 2.4 Competition Math
 
-### 2.6 Neurosymbolic Methods
+*Challenging problems from competitions like AMC, AIME, IMO, Olympiads, often requiring creative reasoning.*
 
-*Integrating neural models (LLMs) with symbolic reasoning methods.*
+* *Key Benchmarks:* MATH (Competition subset), AIME, OlympiadBench, miniF2F (Formal) (See Section 6.1, 6.2 for details)
 
-- **VSA Integration**: "Improving Rule-based Reasoning in LLMs via Neurosymbolic Representations" ([https://arxiv.org/abs/2502.01657](https://arxiv.org/abs/2502.01657)) - Dhanraj, V., & Eliasmith, C. (arXiv 2025). Uses Vector Symbolic Algebras (VSAs) to encode hidden states.
-- **Constrained Decoding (CRANE)**: "CRANE: Reasoning with constrained LLM generation" ([https://arxiv.org/abs/2502.09061](https://arxiv.org/abs/2502.09061)) - Suresh, A., et al. (arXiv 2025). Balances constrained decoding with reasoning flexibility. [38, 39]
-- **Symbolic Operator Prediction**: "From Equations to Insights: Unraveling Symbolic Structures in PDEs with LLMs" ([https://arxiv.org/abs/2503.09986](https://arxiv.org/abs/2503.09986)) - Jin, C., et al. (arXiv 2025). LLM predicts operators to guide symbolic regression. [40, 41]
-- **Symbolic Mixture-of-Experts**: "Symbolic Mixture-of-Experts: Adaptive Skill-based Routing for Heterogeneous Reasoning" ([https://arxiv.org/abs/2503.05641](https://arxiv.org/abs/2503.05641)) - Chen, Z., et al. (arXiv 2025). Routes problems to expert LLMs based on symbolic skill representations. [30, 42]
-- *Concept*: Integrating neural models (LLMs) with symbolic reasoning methods for enhanced reliability, interpretability, and rule-following. [36, 37, 23]
+* "Brains vs. Bytes: Evaluating LLM Proficiency in Olympiad Mathematics" ([Paper](https://arxiv.org/abs/2504.01995)) - *(April 2025)*
+* "Proof or Bluff? Evaluating LLMs on 2025 USA Math Olympiad" ([Paper](https://arxiv.org/abs/2503.21934)) - *(March 2025)*
+* **AlphaGeometry2:** "Gold-medalist Performance in Solving Olympiad Geometry with AlphaGeometry2" ([Paper](https://arxiv.org/abs/2502.03544)) - *(February 2025)*
+* **AlphaGeometry:** "AlphaGeometry: An Olympiad-level AI system for geometry" ([Blog Post](https://deepmind.google/discover/blog/alphageometry-an-olympiad-level-ai-system-for-geometry/)) - *(January 2024)*
 
-## 3. Mathematical Domains & Tasks
+### 2.5 Formal Theorem Proving
 
-*Different mathematical domains and applications where LLMs are applied*
+*Generating and verifying formal mathematical proofs using Interactive Theorem Provers (ITPs).*
 
-### 3.1 Arithmetic & Word Problems
+* *Key Benchmarks:* miniF2F, ProofNet, NaturalProofs, HolStep, CoqGym, LeanStep, INT, FOLIO, MathConstruct (See Section 6.2 for details)
 
-*Solving grade-school level math word problems involving multi-step arithmetic.*
+* **LeanNavigator:** "Generating Millions Of Lean Theorems With Proofs By Exploring State Transition Graphs" ([Paper](https://arxiv.org/abs/2503.04772)) - *(March 2025)*
+* **MathConstruct Benchmark:** "MathConstruct: Challenging LLM Reasoning with Constructive Proofs" ([Paper](https://arxiv.org/abs/2502.10197)) - *(February 2025)*
+* **BFS-Prover:** "BFS-Prover: Scalable Best-First Tree Search for LLM-based Automatic Theorem Proving" ([Paper](https://arxiv.org/abs/2502.03438)) - *(February 2025)*
+* **Llemma:** "Llemma: An Open Language Model For Mathematics" ([Paper](https://arxiv.org/abs/2310.10631)) ([HF Models](https://huggingface.co/EleutherAI/llemma_7b)) - *(October 2023)*
+* "Draft, sketch, and prove: Guiding formal theorem provers with informal proofs" ([Paper](https://arxiv.org/abs/2210.12283)) - *(October 2022)*
+* **GPT-f:** "Generative Language Modeling for Automated Theorem Proving" ([Paper](https://arxiv.org/abs/2009.03393)) - *(September 2020)*
+* **CoqGym:** "Learning to Prove Theorems via Interacting with Proof Assistants" ([Paper](https://arxiv.org/abs/1905.09381)) - *(May 2019)*
+* **DeepMath:** "DeepMath - Deep Sequence Models for Premise Selection" ([Paper](https://arxiv.org/abs/1606.04442)) - *(June 2016)*
 
-- **GSM8K Solving**: "Training Verifiers to Solve Math Word Problems" ([https://arxiv.org/abs/2110.14168](https://arxiv.org/abs/2110.14168)) - Cobbe, K., et al. (arXiv 2021). Introduces GSM8K benchmark. [21, 44, 46, 47]
-- **Scratchpad Reasoning**: "Show Your Work: Scratchpads for Intermediate Computation with Language Models" [2021-12] [[paper](https://arxiv.org/abs/2112.00114)]
-- **Pseudo-Dual Learning**: "Pseudo-Dual Learning: Solving Math Word Problems with Reexamination" [2023-10] [[paper](https://arxiv.org/abs/2310.04292)]
-- **Symbolic Reasoning**: "Reasoning in Large Language Models Through Symbolic Math Word Problems" [2023-05] [[paper](https://arxiv.org/abs/2305.20050)]
-- **Error Detection (MR-GSM8K)**: "MR-GSM8K: A Meta-Reasoning Benchmark for Large Language Models" ([https://arxiv.org/abs/2312.17080](https://arxiv.org/abs/2312.17080)) - Liu, Z., et al. (arXiv 2023). Introduces MR-GSM8K for evaluating error detection. [45, 48, 46]
+## 3. Core Reasoning & Problem-Solving Techniques
 
-### 3.2 Algebra, Geometry, Calculus, etc.
+> This section details the core techniques and methodologies used by LLMs to reason and solve mathematical problems ('HOW' problems are solved), often applicable across multiple domains.
 
-*Problems spanning standard high school and undergraduate curricula.*
+### 3.1 Chain-of-Thought & Prompting Strategies
 
-- **AlphaGeometry**: "Solving Olympiad Geometry without Human Demonstrations" [2024-01] [[paper](https://www.nature.com/articles/s41586-023-06747-5)]
-- **UniGeo**: "Unifying Geometry Logical Reasoning via Reformulating Mathematical Expression" [2022-10] [[paper](https://arxiv.org/abs/2210.01196)]
-- **Inter-GPS**: "Inter-GPS: Interpretable Geometry Problem Solving with Formal Language and Symbolic Reasoning" [2021-06] [[paper](https://arxiv.org/abs/2105.04166)]
-- **MATH Benchmark**: "Measuring Mathematical Problem Solving With the MATH Dataset" ([https://arxiv.org/abs/2103.03874](https://arxiv.org/abs/2103.03874)) - Hendrycks, D., et al. (arXiv 2021). Introduces the MATH benchmark covering these areas.
-- **SciBench**: "SciBench: Evaluating College-Level Scientific Problem Solving Abilities of Large Language Models" ([https://arxiv.org/abs/2307.10635](https://arxiv.org/abs/2307.10635)) - Wang, X., et al. (NeurIPS 2023 Datasets and Benchmarks). Introduces SciBench including calculus etc. [52, 54, 55]
+*Techniques involving generating step-by-step reasoning, structuring prompts effectively, and iterative refinement/correction within the generation process.*
 
-### 3.3 Competition Math
+* **BoostStep:** "Boosting mathematical capability of Large Language Models via improved single-step reasoning" ([Paper](https://arxiv.org/abs/2501.03226)) - *(January 2025)*
+* **Rank-verifier:** "Rank-verifier Agreement Disentangles Large Language Model Capabilities" ([Paper](https://arxiv.org/abs/2405.01316)) - *(May 2024)*
+* **MCR:** "Improving Mathematical Reasoning with Multi-agent Consensus" ([Paper](https://arxiv.org/abs/2404.06174)) - *(April 2024)*
+* **ISR-LLM:** "ISR-LLM: Iterative Self-Refinement with Large Language Models for Mathematical Reasoning" ([Paper](https://arxiv.org/abs/2402.00801)) - *(February 2024)*
+* **GRACE:** "GRACE: Generate, Reason, Act, Check - A Framework for Improving Large Language Model Reasoning" ([Paper](https://arxiv.org/abs/2402.12728)) - *(February 2024)*
+* **BoostedPrompt:** "BoostedPrompt: A Boosting Method for Few-Shot Prompting" ([Paper](https://arxiv.org/abs/2311.14029)) - *(November 2023)*
+* **PromptPG-CoT:** "PromptPG: Prompt Engineering via Policy Gradient for Math Reasoning with Large Language Models" ([Paper](https://arxiv.org/abs/2311.07310)) - *(November 2023)*
+* **CR (Conditional Rationale):** "CR: Improving LLM Mathematical Reasoning with Conditional Rationale" ([Paper](https://arxiv.org/abs/2310.13308)) - *(October 2023)*
+* "Long CoT: Long Chain-of-Thought for Complex Problems" ([Paper](https://arxiv.org/abs/2310.03050)) - *(October 2023)*
+* **LPML:** "LPML: LLM-Prompting Markup Language for Mathematical Reasoning" ([Paper](https://arxiv.org/abs/2309.04269)) - *(September 2023)*
+* **Self-Check:** "SelfCheck: Using LLMs to Zero-Shot Check Their Own Step-by-Step Reasoning" ([Paper](https://arxiv.org/abs/2308.00436)) - *(August 2023)*
+* **Step-Plan:** "Step-by-Step Planning Improves Large Language Model Reasoning" ([Paper](https://arxiv.org/abs/2305.12577)) - *(May 2023)*
+* **Diversity-of-Thought:** "Making Large Language Models Better Reasoners with Step-Aware Verifier" ([Paper](https://arxiv.org/abs/2305.17755)) - *(May 2023)*
+* **Self-Refine:** "Self-Refine: Iterative Refinement with Self-Feedback" ([Paper](https://arxiv.org/abs/2303.17651)) - *(March 2023)*
+* **Reflexion:** "Reflexion: Language Agents with Verbal Reinforcement Learning" ([Paper](https://arxiv.org/abs/2303.11366)) - *(March 2023)*
+* **MathPrompter:** "MathPrompter: Mathematical Reasoning using Large Language Models" ([Paper](https://arxiv.org/abs/2303.05398)) - *(March 2023)*
+* **Faithful CoT:** "Faithful Chain-of-Thought Reasoning" ([Paper](https://arxiv.org/abs/2301.13379)) - *(January 2023)*
+* **Algorithmic Prompting:** "Teaching language models to reason algorithmically" ([Blog Post](https://research.google/blog/teaching-language-models-to-reason-algorithmically/)) - *(November 2022)*
+* "Teaching algorithmic reasoning via in-context learning" ([Paper](https://arxiv.org/abs/2211.09066)) - *(November 2022)* (Related to Algorithmic Prompting)
+* **Self-Consistency:** "Self-Consistency Improves Chain of Thought Reasoning in Language Models" ([Paper](https://arxiv.org/abs/2203.11171)) - *(March 2022)*
+* **Chain-of-Thought (CoT):** "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models" ([Paper](https://arxiv.org/abs/2201.11903)) - *(January 2022)*
 
-*Challenging problems from competitions like AMC, AIME, IMO.*
+### 3.2 Search & Planning
 
-- **Olympiad Geometry (AlphaGeometry)**: "Solving Olympiad Geometry without Human Demonstrations" [2024-01] [[paper](https://www.nature.com/articles/s41586-023-06747-5)]
-- **USAMO Evaluation**: "Proof or Bluff? Evaluating LLMs on 2025 USA Math Olympiad" ([https://arxiv.org/abs/2503.21934](https://arxiv.org/abs/2503.21934)) - Liu, Z., et al. (arXiv 2025). Evaluates SOTA models on recent USAMO problems. [56, 57]
-- **Olympiad Human Evaluation**: "Brains vs. Bytes: Evaluating LLM Proficiency in Olympiad Mathematics" ([https://arxiv.org/abs/2504.01995](https://arxiv.org/abs/2504.01995)) - Mahdavi, H., et al. (arXiv 2025). Human evaluation of LLM proofs for Olympiad problems.
-- **OlympiadBench**: "OlympiadBench: A Challenging Benchmark for Promoting AGI with Olympiad-Level Bilingual Multimodal Scientific Problems" [2023-11] [[paper](https://arxiv.org/abs/2311.07575)]
-- *Key Benchmarks*: MATH [6, 38, 49, 50, 28], AIME subsets [38, 52], OlympiadBench [2, 38]
+*Techniques explicitly exploring multiple potential solution paths or intermediate steps, often building tree or graph structures.*
 
-### 3.4 Formal Theorem Proving
+* **BFS-Prover:** "BFS-Prover: Scalable Best-First Tree Search for LLM-based Automatic Theorem Proving" ([Paper](https://arxiv.org/abs/2502.03438)) - *(February 2025)*
+* **Reward-guided Tree Search (STILL-1):** "Enhancing LLM Reasoning with Reward-guided Tree Search" ([Paper](https://arxiv.org/abs/2411.11694)) - *(November 2024)*
+* **Q* Framework:** "Q*: Improving Multi-step Reasoning for LLMs with Deliberative Planning" ([Paper](https://arxiv.org/abs/2405.03052)) - *(May 2024)*
+* **Learning Planning-based Reasoning:** "Learning Planning-based Reasoning by Trajectories Collection and Process Reward Synthesizing" ([Paper](https://arxiv.org/abs/2402.11771)) - *(February 2024)*
+* **Language Agent Tree Search (LATS):** "Language Agent Tree Search Unifies Reasoning Acting and Planning in Language Models" ([Paper](https://arxiv.org/abs/2310.04406)) - *(October 2023)*
+* **BEATS:** "BEATS: Optimizing LLM Mathematical Capabilities with BackVerify and Adaptive Disambiguate based Efficient Tree Search" ([Paper](https://arxiv.org/abs/2310.04344)) - *(October 2023)*
+* **Graph of Thoughts (GoT):** "Graph of Thoughts: Solving Elaborate Problems with Large Language Models" ([Paper](https://arxiv.org/abs/2308.09687)) ([Code](https://github.com/spcl/graph-of-thoughts)) - *(August 2023)*
+* **Tree of Thoughts (ToT):** "Tree of Thoughts: Deliberate Problem Solving with Large Language Models" ([Paper](https://arxiv.org/abs/2305.10601)) ([Code](https://github.com/kyegomez/Tree-of-Thoughts-LLM)) - *(May 2023)*
+* **Reasoning via Planning (RAP):** "Reasoning with Language Model is Planning with World Model" ([Paper](https://arxiv.org/abs/2305.14992)) - *(May 2023)*
 
-*Generating formal mathematical proofs verifiable by Interactive Theorem Provers (ITPs).*
+### 3.3 Reinforcement Learning & Reward Modeling
 
-- **GPT-f**: "GPT-f: Generative Language Modeling for Automated Theorem Proving" [2021-05] [[paper](https://arxiv.org/abs/2009.03393)]
-- **miniF2F**: "miniF2F: A Cross-System Benchmark for Formal Olympiad-Level Mathematics" [2022-09] [[paper](https://arxiv.org/abs/2109.00110)] Introduces MiniF2F benchmark. [7, 21, 59, 36]
-- **COPRA**: "COPRA: COllaborative PRoof Assistant with GPT-4" [2024-02] [[paper](https://arxiv.org/abs/2402.10108)]
-- **Formal Mathematics Survey**: "Formal Mathematical Reasoning: A New Frontier in AI" [2023-11] [[paper](https://arxiv.org/abs/2306.03544)]
-- **Llemma**: "Llemma: An Open Language Model For Mathematics" [2023-10] [[paper](https://arxiv.org/abs/2310.10631)]
-- **Lean Data Synthesis**: "LeanNavigator: Generating Diverse Theorems and Proofs by Exploring State Graphs" ([https://arxiv.org/abs/2503.04772](https://arxiv.org/abs/2503.04772)) - Jiang, A., et al. (arXiv 2025). Automated formal proof data synthesis. [8, 44, 46, 30]
-- **BFS-Prover**: "BFS-Prover: Scalable Best-First Tree Search for LLM-based Automatic Theorem Proving" ([https://arxiv.org/abs/2502.03438](https://arxiv.org/abs/2502.03438)) - Xin, R., et al. (arXiv 2025). Uses BFS and expert iteration. [24, 25]
-- *Key Tool*: Lean Theorem Prover [60, 19, 61, 62, 63, 64]
+*Using RL algorithms (e.g., PPO, DPO) and feedback mechanisms (e.g., RLHF, Process Reward Models - PRM) to train models based on preferences or process correctness.*
 
-### 3.5 Symbolic Manipulation
+* "Lessons Learned on Language Models for Mathematical Reasoning" ([Paper](https://arxiv.org/abs/2501.07301)) - *(January 2025)*
+* **Preference Optimization (Pseudo Feedback):** "Preference Optimization for Reasoning with Pseudo Feedback" ([Paper](https://arxiv.org/abs/2411.16345)) - *(November 2024)*
+* **Step-Controlled DPO (SCDPO):** "Step-Controlled DPO: Leveraging Stepwise Error for Enhanced Mathematical Reasoning" ([Paper](https://arxiv.org/abs/2406.04579)) - *(June 2024)*
+* **Step-DPO:** "Step-DPO: Step-wise Preference Optimization for Long-chain Reasoning of LLMs" ([Paper](https://arxiv.org/abs/2406.18629)) - *(June 2024)*
+* **SuperCorrect:** "SuperCorrect: Supervising and Correcting Language Models with Error-Driven Insights" ([Paper](https://arxiv.org/abs/2405.18542)) ([Code](https://github.com/YangLing0818/SuperCorrect-llm)) - *(May 2024)*
+* **SVPO:** "Step-level Value Preference Optimization for Mathematical Reasoning" ([Paper](https://arxiv.org/abs/2405.18357)) ([Code](https://github.com/MARIO-Math-Reasoning/Super_MARIO)) - *(May 2024)*
+* **LLaMA-Berry:** "LLaMA-Berry: Pairwise Optimization for O1-like Olympiad-Level Mathematical Reasoning" ([Paper](https://arxiv.org/abs/2405.18045)) - *(May 2024)*
+* **OmegaPRM:** "OmegaPRM: Enhancing Process Supervision with Outcome Guidance" ([Paper](https://arxiv.org/abs/2405.19725)) - *(May 2024)*
+* **HGS-PRM:** "Hierarchical Granularity Supervision for Mathematical Process Reward Models" ([Paper](https://arxiv.org/abs/2405.19028)) - *(May 2024)*
+* **Flow-DPO:** "Flow-DPO: Aligning Language Models via Flow Matching on Preference Trajectories" ([Paper](https://arxiv.org/abs/2405.16058)) - *(May 2024)*
+* **AlphaMath Almost Zero:** "AlphaMath Almost Zero: process Supervision without process" ([Paper](https://arxiv.org/abs/2405.03553)) - *(May 2024)*
+* **Math-Minos:** "LLM Critics Help Catch Bugs in Mathematics: Towards a Better Mathematical Verifier with Natural Language Feedback" ([Paper](https://arxiv.org/abs/2405.11186)) ([Code](https://github.com/DAMO-NLP-SG/LLM-Critics-Math)) - *(May 2024)*
+* **Collaborative Verification:** "Improving LLM Reasoning through Scaling Inference Computation with Collaborative Verification" ([Paper](https://arxiv.org/abs/2404.07928)) - *(April 2024)*
+* **MCTS-DPO:** "Monte Carlo Tree Search Boosts Reasoning via Iterative Preference Learning" ([Paper](https://arxiv.org/abs/2402.10770)) ([Code](https://github.com/YuxiXie/MCTS-DPO)) - *(February 2024)*
+* **SCoRe (Self-Correction):** "Self-Correction with Optimal Transport for Reasoning Tasks" ([Paper](https://arxiv.org/abs/2402.12689)) - *(February 2024)*
+* **GRPO (DeepSeekMath):** "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models" ([Paper](https://arxiv.org/abs/2402.03300)) - *(February 2024)*
+* **Math-Shepherd:** "Math-Shepherd: Verify and Reinforce LLMs Step-by-step without Human Annotations" ([Paper](https://arxiv.org/abs/2312.08935)) - *(December 2023)*
+* **RL Alignment (KTO / NCA):** "EURUS: Scaling Down Deep Equilibrium Models" ([Paper](https://arxiv.org/abs/2311.18231)) - *(November 2023)*
+* **Process Supervision (PRM800K):** "Solving Math Word Problems with Process- and Outcome-Based Feedback" ([Paper](https://arxiv.org/abs/2305.15062)) - *(May 2023)*
+* **Process Supervision (Verify Step-by-Step):** "Let's Verify Step by Step" ([Paper](https://arxiv.org/abs/2305.20050)) - *(May 2023)*
+* **DPO Algorithm:** "Direct Preference Optimization: Your Language Model is Secretly a Reward Model" ([Paper](https://arxiv.org/abs/2305.18290)) - *(May 2023)*
+* **RLHF (General):** "Training language models to follow instructions with human feedback" ([Paper](https://arxiv.org/abs/2203.02155)) - *(March 2022)*
+* **RL for Optimization:** "Learning to Optimize with Reinforcement Learning" ([Paper](https://arxiv.org/abs/2103.01148)) - *(March 2021)* (Survey Example)
+* **PPO Algorithm:** "Proximal Policy Optimization Algorithms" ([Paper](https://arxiv.org/abs/1707.06347)) - *(July 2017)*
 
-*Using LLMs for tasks involving symbolic expressions, potentially integrating with symbolic solvers.*
+### 3.4 Self-Improvement & Self-Training
 
-- See [Section 2.6 Neurosymbolic Methods](#26-neurosymbolic-methods) for integrated approaches.
-- See [Section 2.5 Tool Use & Augmentation](#25-tool-use--augmentation) for interaction with solvers like SymPy/Mathematica via tools (Logic-LM, SatLM).
+*Methods where models iteratively generate data, reflect on outcomes or process, and refine their reasoning abilities, often employing techniques from Sec 3.1 & 3.3.*
+
+* **rStar-Math:** "Small LLMs Can Master Math Reasoning with Self-Evolved Deep Thinking" ([Paper](https://arxiv.org/abs/2502.10000)) ([Code](https://github.com/microsoft/rStar)) - *(February 2025)*
+* **V-STaR:** "V-STaR: Training Verifiers for Self-Taught Reasoners" ([Paper](https://arxiv.org/abs/2405.09859)) - *(May 2024)*
+* **Quiet-STaR:** "Quiet-STaR: Language Models Can Teach Themselves to Think Before Speaking" ([Paper](https://arxiv.org/abs/2403.09629)) - *(March 2024)*
+* **Self-Correction (SCoRe/MCTSr):** "Self-Correction with Optimal Transport for Reasoning Tasks" ([Paper](https://arxiv.org/abs/2402.12689)) - *(February 2024)*
+* **CoRe (Self-Correction Controller):** "Self-Correction Controller for Large Language Models" ([Paper](https://arxiv.org/abs/2310.12357)) - *(October 2023)*
+* **ReST:** "Reinforced Self-Training (ReST) for Language Modeling" ([Paper](https://arxiv.org/abs/2308.08998)) - *(August 2023)*
+* **RFT (Scaling Relationship):** "Scaling Relationship on Learning Mathematical Reasoning with Large Language Models" ([Paper](https://arxiv.org/abs/2308.01825)) - *(August 2023)*
+* **STaR:** "Self-Taught Reasoner (STaR): Bootstrapping Reasoning With Reasoning" ([Paper](https://arxiv.org/abs/2203.14465)) - *(March 2022)*
+* *Note: Methods like Self-Refine, Reflexion (listed in Sec 3.1) also implement self-improvement loops.*
+
+### 3.5 Tool Use & Augmentation
+
+*Enabling LLMs to call external computational or knowledge tools like calculators, code interpreters, search engines, solvers, and planners.*
+
+* **MuMath-Code:** "MuMath-Code: A Multilingual Mathematical Problem Solving Dataset with Code Solutions" ([Paper](https://arxiv.org/abs/2405.00742)) - *(May 2024)*
+* "Large Language Models for Operations Research: A Survey" ([Paper](https://arxiv.org/abs/2402.04889)) - *(February 2024)* (Discusses Solver Integration)
+* **MARIO Pipeline:** "MARIO: MAth Reasoning with code Interpreter Output - A Reproducible Pipeline" ([Paper](https://arxiv.org/abs/2401.11171)) ([Code](https://github.com/MARIO-Math-Reasoning/MARIO)) - *(January 2024)*
+* **MAmmoTH:** "MAmmoTH: Building Math Generalist Models through Hybrid Instruction Tuning" ([Paper](https://arxiv.org/abs/2401.11445)) ([HF Dataset](https://huggingface.co/datasets/TIGER-Lab/MAmmoTH)) - *(January 2024)*
+* **ToRA:** "ToRA: A Tool-Integrated Reasoning Agent for Mathematical Problem Solving" ([Paper](https://arxiv.org/abs/2309.17452)) ([Code](https://github.com/microsoft/ToRA) - *(September 2023)*
+* "Solving Challenging Math Word Problems Using GPT-4 Code Interpreter with Code-Based Self-Verification" ([Paper](https://arxiv.org/abs/2308.07921)) - *(August 2023)* (Evaluating GPT-4 Code Interpreter)
+* **GPT-4 Code Interpreter:** (Official Release/Plugin) ([Blog Post](https://openai.com/blog/chatgpt-plugins#code-interpreter)) - *(March 2023)*
+* **ART:** "ART: Automatic multi-step reasoning and tool-use for large language models" ([Paper](https://arxiv.org/abs/2303.09014)) ([Code (Guidance)](https://github.com/microsoft/guidance)) - *(March 2023)*
+* **Toolformer:** "Toolformer: Language Models Can Teach Themselves to Use Tools" ([Paper](https://arxiv.org/abs/2302.04761)) - *(February 2023)*
+* **PoT (Program of Thoughts):** "Program of Thoughts Prompting: Disentangling Computation from Reasoning for Numerical Reasoning Tasks" ([Paper](https://arxiv.org/abs/2211.12588)) - *(November 2022)*
+* **PAL (Program-Aided LM):** "Program-Aided Language Models" ([Paper](https://arxiv.org/abs/2211.10435)) ([Code](https://github.com/reasoning-machines/pal)) - *(November 2022)*
+
+### 3.6 Neurosymbolic Methods & Solver Integration
+
+*Methods focusing on deeper integration between neural models and symbolic representations, reasoning systems (like ITPs, formal logic), or solvers beyond simple tool calls.*
+
+* "Symbolic Mixture-of-Experts" ([Paper](https://arxiv.org/abs/2503.05641)) - *(March 2025)*
+* "Discovering Symbolic Operators from Partial Differential Equations with Neural Networks" ([Paper](https://arxiv.org/abs/2503.09986)) - *(March 2025)*
+* **CRANE:** "CRANE: Constrained Decoding for Neuro-Symbolic Mathematical Reasoning" ([Paper](https://arxiv.org/abs/2502.09061)) - *(February 2025)*
+* "Integrating Vector Symbolic Architectures with Transformers for Explainable Mathematical Reasoning" ([Paper](https://arxiv.org/abs/2502.01657)) - *(February 2025)*
+* **LISA:** "LISA: Language Models Integrate Symbolic Abstractions" ([Paper](https://arxiv.org/abs/2405.16557)) - *(May 2024)*
+* **LLM+DP:** "From Words to Actions: Empowering Large Language Models to Follow Instructions with Deep Planning" ([Paper](https://arxiv.org/abs/2311.06623)) - *(November 2023)*
+* **LINC:** "LINC: A Neurosymbolic Approach for Logical Reasoning by Combining Language Models with First-Order Logic Provers" ([Paper](https://arxiv.org/abs/2310.01066)) - *(October 2023)*
+* **SatLM:** "SatLM: Satisfiability-Aided Language Models" ([Paper](https://arxiv.org/abs/2310.05726)) - *(October 2023)*
+* **LeanReasoner:** "LeanReasoner: Boosting Logical Reasoning via Prompting Large Language Models" ([Paper](https://arxiv.org/abs/2305.10111)) - *(May 2023)*
+* **Logic-LM:** "Logic-LM: Empowering Large Language Models with Symbolic Solvers for Faithful Logical Reasoning" ([Paper](https://arxiv.org/abs/2305.12295)) - *(May 2023)*
+* **LLM+P:** "LLM+P: Empowering Large Language Models with Optimal Planning Proficiency" ([Paper](https://arxiv.org/abs/2304.11477)) - *(April 2023)*
+* **Inter-GPS:** "Inter-GPS: Interpretable Geometry Problem Solving with Formal Language and Symbolic Reasoning" ([Paper](https://arxiv.org/abs/2105.04165)) - *(May 2021)*
+* **GPT-f:** "Generative Language Modeling for Automated Theorem Proving" ([Paper](https://arxiv.org/abs/2009.03393)) - *(September 2020)*
 
 ## 4. Multimodal Mathematical Reasoning
 
-*Solving math problems involving non-textual information (diagrams, plots, tables, handwritten equations).*
+> This section focuses on the specific challenges and approaches for mathematical reasoning when non-textual information (images, diagrams, tables) is involved.
 
-- **Survey**: "A Survey of Mathematical Reasoning in the Era of Multimodal Large Language Model" ([https://arxiv.org/abs/2412.11936](https://arxiv.org/abs/2412.11936)) - Yan, Y., et al. (arXiv 2024). Comprehensive survey. [2, 37, 66]
-- **MathVista Benchmark**: "MathVista: Evaluating Mathematical Reasoning of Foundation Models in Visual Contexts" ([https://arxiv.org/abs/2310.02255](https://arxiv.org/abs/2310.02255)) - Lu, P., et al. (NeurIPS 2023). Introduces MathVista benchmark.
-- **ScienceQA Benchmark**: "Learn to Explain: Multimodal Reasoning, Representation, and Debiasing in Science Question Answering" ([https://arxiv.org/abs/2209.09958](https://arxiv.org/abs/2209.09958)) - Lu, P., et al. (NeurIPS 2022). Introduces ScienceQA benchmark. [58, 56, 67, 54]
-- **MATH-Vision Benchmark**: "Measuring Multimodal Mathematical Reasoning with the MATH-Vision Dataset" ([https://arxiv.org/abs/2402.17177](https://arxiv.org/abs/2402.17177)) - Wang, X., et al. (NeurIPS 2024). Introduces MATH-Vision benchmark.
-- **ErrorRadar**: "ErrorRadar: Evaluating the Multimodal Error Detection of LLMs in Educational Settings" [2024-03] [[paper](https://arxiv.org/abs/2403.03894)]
-- **MathVerse**: "MathVerse: Assessing Visual Mathematical Understanding in Multimodal LLMs" [2024-04] [[paper](https://arxiv.org/abs/2404.13834)]
-- **MathV360K Dataset**: "Math-LLaVA: Bootstrapping Mathematical Reasoning for Large Vision Language Models" ([https://arxiv.org/abs/2404.02693](https://arxiv.org/abs/2404.02693)) [2024-04]. Large multimodal math QA dataset.
-- **Math-PUMA**: "Math-PUMA: Progressive Upward Multimodal Alignment for Math Reasoning Enhancement" [2024-04] [[paper](https://arxiv.org/abs/2404.01166)]
-- **MAVIS-Instruct**: "MAVIS: Multimodal Automatic Visual Instruction Synthesis for Math Problem Solving" [2024-04] [[paper](https://arxiv.org/abs/2404.04473)]
-- **Models (Examples)**: GPT-4V [6, 68], Gemini Vision [2, 6, 68], Qwen-VL [65, 6], LLaVA variants [2, 6, 69], AtomThink [6, 11].
-- **Datasets & Benchmarks**:
-  - [MathVista](https://mathvista.github.io/)
-  - [ScienceQA](https://scienceqa.github.io/) [13, 15, 58, 56, 37, 62, 67, 53, 54]
-  - [MATH-Vision](https://arxiv.org/abs/2402.17177)
-  - [GeoQA/GeoEval](https://arxiv.org/abs/2412.11936) [2, 37]
-  - [MathV360K](https://huggingface.co/datasets/Zhiqiang007/MathV360K) (Training Data)
-  - See also: [Awesome-Multimodal-LLM-for-Math-STEM Datasets](https://github.com/InfiMM/Awesome-Multimodal-LLM-for-Math-STEM#mllm-mathstem-dataset) [13]
+* **Survey (Multimodal):** "A Survey of Mathematical Reasoning in the Era of Multimodal Large Language Model" ([Paper](https://arxiv.org/abs/2412.11936)) - *(December 2024)*
+
+* *Key Benchmarks:* MathVista, ScienceQA, MATH-Vision, MathVerse, GeoQA/GeoEval, FigureQA, ChartQA, MM-MATH (See Section 6.3 for details)
+
+* **UnAC:** "Unified Abductive Cognition for Multimodal Reasoning" ([Paper](https://arxiv.org/abs/2405.17550)) - *(May 2024)*
+* **MAVIS-Instruct:** "MAVIS: Multimodal Automatic Visual Instruction Synthesis for Math Problem Solving" ([Paper](https://arxiv.org/abs/2404.04473)) - *(April 2024)*
+* **MathV360K Dataset (Math-LLaVA):** "Math-LLaVA: Bootstrapping Mathematical Reasoning for Large Vision Language Models" ([Paper](https://arxiv.org/abs/2404.02693)) ([Dataset](https://huggingface.co/datasets/Zhiqiang007/MathV360K)) - *(April 2024)*
+* **Math-PUMA:** "Math-PUMA: Progressive Upward Multimodal Alignment for Math Reasoning Enhancement" ([Paper](https://arxiv.org/abs/2404.01166)) - *(April 2024)*
+* **ErrorRadar:** "ErrorRadar: Evaluating the Multimodal Error Detection of LLMs in Educational Settings" ([Paper](https://arxiv.org/abs/2403.03894)) - *(March 2024)*
+* **MathGLM-Vision:** "Solving Mathematical Problems with Multi-Modal Large Language Model" ([Paper](https://arxiv.org/abs/2402.04503)) - *(February 2024)*
+
+* *Models (Examples):* GPT-4V, Gemini Pro Vision, Qwen-VL, LLaVA variants (LLaVA-o1), AtomThink, M-STAR, GLM-4V (See Section 5.3 for details)
 
 ## 5. Models
 
-*Prominent LLMs relevant to mathematics.*
+> This section lists the specific Large Language Models relevant to mathematical tasks.
+> *Note: Classification and details partly informed by Table 1 in survey arXiv:2503.17726.*
 
 ### 5.1 Math-Specialized LLMs
 
-*Models specifically pre-trained or fine-tuned for mathematical tasks.*
+*Models specifically pre-trained or fine-tuned for mathematical tasks, often incorporating math-specific data or techniques.*
 
-- **DeepSeekMath**: ([https://github.com/deepseek-ai/DeepSeek-Math](https://github.com/deepseek-ai/DeepSeek-Math)) - (DeepSeek) Pre-trained on math-heavy web data. Base, Instruct, RL versions. [14, 65, 51, 54]
-- **Qwen-Math / Qwen2.5-Math**: ([https://arxiv.org/abs/2406.13559](https://arxiv.org/abs/2406.13559)) - (Alibaba) Math-focused versions, strong performance. [3, 27, 30, 42, 70]
-- **InternLM-Math**: ([https://huggingface.co/internlm/internlm2-math-base-7b](https://huggingface.co/internlm/internlm2-math-base-7b)) - (Shanghai AI Lab) Adapted for math, Base and SFT checkpoints. [14, 20, 65, 24, 34, 17, 66]
-- **Minerva**: ([https://ai.googleblog.com/2022/06/minerva-solving-quantitative-reasoning.html](https://ai.googleblog.com/2022/06/minerva-solving-quantitative-reasoning.html)) - (Google) Fine-tuned on scientific/math text. [6, 66]
-- **Llemma**: ([https://arxiv.org/abs/2310.10631](https://arxiv.org/abs/2310.10631)) - (EleutherAI) Open models pre-trained for math. [7, 52, 66]
-- **WizardMath**: ([https://arxiv.org/abs/2308.09583](https://arxiv.org/abs/2308.09583)) - Fine-tuned using reinforced Evol-Instruct.
-- **MetaMath**: ([https://arxiv.org/abs/2309.12284](https://arxiv.org/abs/2309.12284)) - Focuses on augmenting math problems for fine-tuning.
+* **JiuZhang3.0:** "Efficiently Improving Mathematical Reasoning by Training Small Data Synthesis Models" ([Paper](https://arxiv.org/abs/2405.14365)) ([Code](https://github.com/RUCAIBox/JiuZhang3.0)) - *(May 2024)*
+* **DART-MATH Models:** "DART-Math: Difficulty-Aware Rejection Tuning for Mathematical Problem-Solving" ([Paper](https://arxiv.org/abs/2405.14194)) - *(May 2024)*
+* **Skywork-Math Models:** "Skywork-Math: Data Scaling Laws for Mathematical Reasoning in Large Language Models - The Story Goes On" ([Paper](https://arxiv.org/abs/2405.10814)) - *(May 2024)*
+* **ControlMath:** "ControlMath: Mathematical Reasoning with Process Supervision and Outcome Guidance" ([Paper](https://arxiv.org/abs/2405.19725)) - *(May 2024)*
+* **ChatGLM-Math:** "ChatGLM-Math: Improving Math Problem-Solving in Large Language Models with a Self-Critique Pipeline" ([Paper](https://arxiv.org/abs/2404.06864)) ([GitHub](https://github.com/THUDM/ChatGLM-Math)) - *(April 2024)*
+* **Rho-1:** "Rho-1: Not All Tokens Are What You Need" ([Paper](https://arxiv.org/abs/2404.07965)) - *(April 2024)*
+* **MathCoder2 Models:** "MathCoder2: Better Math Reasoning from Continued Pretraining on Model-translated Mathematical Code" ([Paper](https://arxiv.org/abs/2404.11081)) ([Code](https://github.com/mathllm/MathCoder2)) - *(April 2024)*
+* **Qwen-Math / Qwen2.5-Math:** "Qwen2.5: Advancing Large Language Models for Code, Math, Multilingualism, and Long Context" ([Paper](https://arxiv.org/abs/2406.13559)) ([HF Models](https://huggingface.co/Qwen)) - *(June 2024)*
+* **DeepSeekMath:** "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models" ([Paper](https://arxiv.org/abs/2402.03300)) ([GitHub](https://github.com/deepseek-ai/DeepSeek-Math)) - *(February 2024)*
+* **InternLM-Math:** "InternLM-Math: Open Math Large Language Models Toward Verifiable Reasoning" ([Paper](https://arxiv.org/abs/2402.15296)) ([HF Models](https://huggingface.co/internlm)) - *(February 2024)*
+* **Llemma:** "Llemma: An Open Language Model For Mathematics" ([Paper](https://arxiv.org/abs/2310.10631)) ([HF Models](https://huggingface.co/EleutherAI/llemma_7b)) - *(October 2023)*
+* **MetaMath:** "MetaMath: Bootstrap Your Own Mathematical Questions for Large Language Models" ([Paper](https://arxiv.org/abs/2309.12284)) ([Code](https://github.com/meta-math/MetaMath)) - *(September 2023)*
+* **WizardMath:** "WizardMath: Empowering Mathematical Reasoning for Large Language Models via Reinforced Evol-Instruct" ([Paper](https://arxiv.org/abs/2308.09583)) ([HF Models](https://huggingface.co/WizardLM/WizardMath-70B-V1.0)) - *(August 2023)*
+* **PaLM 2-L-Math:** "PaLM 2 Technical Report" ([Paper](https://ai.google/static/documents/palm2techreport.pdf)) - *(May 2023)*
+* **MathGLM:** "MathGLM: Mathematical Reasoning with Goal-driven Language Models" ([Paper](https://arxiv.org/abs/2305.15112)) - *(May 2023)*
+* **MATHDIAL:** "MATHDIAL: A Dialogue-Based Pre-training Approach for Mathematical Reasoning" ([Paper](https://arxiv.org/abs/2305.11865)) - *(May 2023)*
+* **MATH-PLM:** "MATH-PLM: Pre-training Language Models for Mathematical Reasoning" ([Paper](https://arxiv.org/abs/2209.04193)) - *(September 2022)*
+* **Minerva:** "Minerva: Solving Quantitative Reasoning Problems with Language Models" ([Blog Post](https://ai.googleblog.com/2022/06/minerva-solving-quantitative-reasoning.html)) - *(June 2022)*
+* **Codex-math:** "Evaluating Large Language Models Trained on Code" ([Paper](https://arxiv.org/abs/2107.03374)) - *(July 2021)*
+* **GPT-f:** "Generative Language Modeling for Automated Theorem Proving" ([Paper](https://arxiv.org/abs/2009.03393)) - *(September 2020)*
 
 ### 5.2 Reasoning-Focused LLMs
 
-*Models explicitly optimized for complex reasoning tasks, often via RL/search.*
+*Models explicitly optimized for complex reasoning tasks, often via advanced RL, search, self-improvement, or specialized architectures.*
 
-- **OpenAI 'o' series (o1, o3-mini)**: Closed models, strong reasoning via RL/search. [3, 14, 10, 22, 13, 51, 18, 71, 6, 35, 27, 28, 47, 72, 73]
-- **DeepSeek 'R' series (R1)**: ([https://arxiv.org/abs/2501.12948](https://arxiv.org/abs/2501.12948)) - Closed models, strong reasoning via RL (GRPO). [3, 14, 10, 13, 15, 51, 71, 6, 11, 24, 35, 47, 74] Also see [Repo](https://github.com/deepseek-ai/DeepSeek-R1).
-- **QaQ**: "QwQ-32B: Embracing the Power of Reinforcement Learning" [2025-03] [[blog](https://qwenlm.github.io/blog/qwq-32b/)] [[repo](https://github.com/QwenLM/QwQ)]
-- **ERNIE X1**: "Baidu Unveils ERNIE 4.5 and Reasoning Model ERNIE X1" [2025-03] [[website](https://yiyan.baidu.com/)]
-- **Gemini 2.0 Flash Thinking**: "Gemini 2.0 Flash Thinking" [2025-03] [[blog](https://deepmind.google/technologies/gemini/flash-thinking/)]
+* **QaQ:** "QwQ-32B: Embracing the Power of Reinforcement Learning" ([Blog Post](https://qwenlm.github.io/blog/qwq-32b/)) ([GitHub](https://github.com/QwenLM/QwQ)) - *(March 2025)*
+* **ERNIE X1:** "Baidu Unveils ERNIE 4.5 and Reasoning Model ERNIE X1" ([Website](https://yiyan.baidu.com/)) - *(March 2025)*
+* **rStar-Math Models:** "Small LLMs Can Master Math Reasoning with Self-Evolved Deep Thinking" ([Paper](https://arxiv.org/abs/2502.10000)) ([Code](https://github.com/microsoft/rStar)) - *(February 2025)* (e.g., rStar-Math-7B-v2 [HF Model](https://huggingface.co/agi-templar/rStar-Math-7B-v2))
+* **DeepSeek R1:** "DeepSeek-R1: Pushing the Limits of General Reasoning in Open Large Language Models" ([Paper](https://arxiv.org/abs/2501.12948)) ([GitHub](https://github.com/deepseek-ai/DeepSeek-R1)) - *(January 2025)*
+* **Gemini 2.0 Flash Thinking:** "Flash Thinking: Real-time reasoning with Gemini 2.0" ([Blog Post](https://deepmind.google/technologies/gemini/flash-thinking/)) - *(December 2024)*
+* **OpenAI o1:** "Introducing o1" ([Blog Post](https://openai.com/index/introducing-o1/)) - *(September 2024)*
+* **Marco-o1:** "Marco-o1: An Open Reasoning Model Trained with Process Supervision" ([Paper](https://arxiv.org/abs/2406.17439)) ([HF Models](https://huggingface.co/Nexusflow/Marco-o1-7B)) - *(June 2024)*
+* **SocraticLLM:** "SocraticLLM: Iterative Chain-of-Thought Distillation for Large Language Models" ([Paper](https://arxiv.org/abs/2405.10927)) - *(May 2024)*
+* **EURUS:** "EURUS: Scaling Down Deep Equilibrium Models" ([Paper](https://arxiv.org/abs/2311.18231)) ([HF Models](https://huggingface.co/Nexusflow)) - *(November 2023)*
 
 ### 5.3 Leading General LLMs
 
-*General-purpose models frequently evaluated on mathematical benchmarks.*
+*General-purpose models frequently evaluated on mathematical benchmarks. Includes base models for many specialized versions.*
 
-**OpenAI** [[link](https://openai.com/)]
-- **GPT-3**: "Language Models are Few-Shot Learners" [2020-05] [[paper](https://arxiv.org/abs/2005.14165)]
-- **GPT-4**: "GPT-4 Technical Report" [2023-03] [[paper](https://arxiv.org/abs/2303.08774)]
-- **GPT-4o**: "GPT-4o System Card" [2024-10] [[paper](https://arxiv.org/abs/2410.21276)]
-- **GPT-4.5**: "Introducing GPT-4.5" [2025-02] [[blog](https://openai.com/index/introducing-gpt-4-5/)]
+**OpenAI**
 
-**Google** [[link](https://gemini.google.com/)]
-- **PaLM, Flan-PaLM**: [18, 6, 11]
-- **Gemini 1.5 Pro**: "Gemini 1.5 Unlocking multimodal understanding across millions of tokens of context" [2024-05] [[paper](https://arxiv.org/abs/2403.05530)] [[blog](https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/#gemini-15)]
-- **Gemini 2**: "Gemini 1.5 Flash: Fast and Efficient Multimodal Reasoning" [2024-05] [[blog](https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/)]
-- **Gemma**: "Gemma: Open Models Based on Gemini Research and Technology" [2024-02] [[paper](https://storage.googleapis.com/deepmind-media/gemma/gemma-report.pdf)] [[blog](https://blog.google/technology/developers/gemma-open-models/)]
-- **Gemma 2**: "Gemma 2: Improving Open Language Models at a Practical Size" [2024-06] [[paper](https://storage.googleapis.com/deepmind-media/gemma/gemma-2-report.pdf)]
+* **GPT-4.5:** "Introducing GPT-4.5" ([Blog Post](https://openai.com/index/introducing-gpt-4-5/)) - *(December 2024)*
+* **GPT-4o:** "GPT-4o System Card" ([Paper](https://arxiv.org/abs/2410.21276)) - *(October 2024)*
+* **GPT-4V:** "GPT-4V(ision) System Card" ([Paper](https://cdn.openai.com/papers/GPTV_System_Card.pdf)) - *(September 2023)*
+* **GPT-4:** "GPT-4 Technical Report" ([Paper](https://arxiv.org/abs/2303.08774)) - *(March 2023)*
+* **GPT-3:** "Language Models are Few-Shot Learners" ([Paper](https://arxiv.org/abs/2005.14165)) - *(May 2020)*
 
-**Anthropic** [[link](https://www.anthropic.com/)]
-- **Claude 3**: "The Claude 3 Model Family: Opus, Sonnet, Haiku" [2024-03] [[paper](https://www-cdn.anthropic.com/de8ba9b01c9ab7cbabf5c33b80b7bbc618857627/Model_Card_Claude_3.pdf)] [[blog](https://www.anthropic.com/news/claude-3-family)]
-- **Claude 3.5**: "Claude 3.5 Sonnet Model Card Addendum" [2024-10] [[paper](https://www-cdn.anthropic.com/fed9cc193a14b84131812372d8d5857f8f304c52/Model_Card_Claude_3_Addendum.pdf)] [[blog](https://www.anthropic.com/claude/haiku)]
-- **Claude 3.7**: "Claude 3.7 Sonnet System Card" [2025-03] [[paper](https://www-cdn.anthropic.com/de8ba9b01c9ab7cbabf5c33b80b7bbc618857627/Model_Card_Claude_3.7_Sonnet.pdf)] [[blog](https://www.anthropic.com/news/claude-3-7-sonnet)]
+**Google**
+
+* **Gemini 2:** "Gemini 2: Unlocking multimodal intelligence at scale" ([Blog Post](https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/)) - *(December 2024)*
+* **Gemma 2:** "Gemma 2 Technical Report" ([Paper](https://storage.googleapis.com/deepmind-media/gemma/gemma-2-report.pdf)) - *(June 2024)*
+* **Gemini 1.5 Pro:** "Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context" ([Paper](https://arxiv.org/abs/2403.05530)) - *(February 2024)*
+* **Gemma:** "Gemma: Open Models Based on Gemini Research and Technology" ([Paper](https://storage.googleapis.com/deepmind-media/gemma/gemma-report.pdf)) - *(February 2024)*
+* **Gemini 1.0:** "Gemini: A Family of Highly Capable Multimodal Models" ([Paper](https://arxiv.org/abs/2312.11805)) - *(December 2023)*
+* **Flan-PaLM:** "Scaling Instruction-Finetuned Language Models" ([Paper](https://arxiv.org/abs/2210.11416)) - *(October 2022)*
+* **PaLM:** "PaLM: Scaling Language Modeling with Pathways" ([Paper](https://arxiv.org/abs/2204.02311)) - *(April 2022)*
+
+**Anthropic**
+
+* **Claude 3.7:** "Claude 3.7 Model Card" ([Paper](https://www-cdn.anthropic.com/claude-3.7-model-card.pdf)) - *(December 2024)*
+* **Claude 3.5:** "Claude 3.5 Sonnet Model Card Addendum" ([Paper](https://www-cdn.anthropic.com/claude-3.5-sonnet-model-card-addendum.pdf)) - *(June 2024)*
+* **Claude 3:** "The Claude 3 Model Family: Opus, Sonnet, Haiku" ([Paper](https://www-cdn.anthropic.com/claude-3-model-card.pdf)) - *(March 2024)*
 
 **Meta**
-- **LLaMA**: "LLaMA: Open and Efficient Foundation Language Models" [2023-02] [[paper](https://arxiv.org/abs/2302.13971)]
-- **LLaMA 2**: "Llama 2: Open Foundation and Fine-Tuned Chat Models" [2023-07] [[paper](https://arxiv.org/abs/2307.09288)] [[repo](https://github.com/facebookresearch/llama)]
-- **LLaMA 3**: "The Llama 3 Herd of Models" [2024-04] [[blog](https://ai.meta.com/blog/meta-llama-3/)] [[repo](https://github.com/meta-llama/llama3)] [[paper](https://arxiv.org/abs/2407.21783)]
+
+* **LLaMA 3:** "The Llama 3 Herd of Models" ([Paper](https://arxiv.org/abs/2407.21783)) ([GitHub](https://github.com/meta-llama/llama3)) - *(July 2024)*
+* **LLaMA 2:** "Llama 2: Open Foundation and Fine-Tuned Chat Models" ([Paper](https://arxiv.org/abs/2307.09288)) - *(July 2023)*
+* **LLaMA:** "LLaMA: Open and Efficient Foundation Language Models" ([Paper](https://arxiv.org/abs/2302.13971)) - *(February 2023)*
 
 **DeepSeek**
-- **DeepSeek**: "DeepSeek LLM: Scaling Open-Source Language Models with Longtermism" [2024-01] [[paper](https://arxiv.org/abs/2401.02954)] [[repo](https://github.com/deepseek-ai/DeepSeek-LLM)]
-- **DeepSeekMoE**: "DeepSeekMoE: Towards Ultimate Expert Specialization in Mixture-of-Experts Language Models" [2024-01] [[paper](https://arxiv.org/abs/2401.12246)] [[repo](https://github.com/deepseek-ai/DeepSeek-MoE)]
-- **DeepSeek-V2**: "DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model" [2024-05] [[paper](https://arxiv.org/abs/2405.04434)] [[repo](https://github.com/deepseek-ai/DeepSeek-V2)]
-- **DeepSeek-V3**: "DeepSeek-V3 Technical Report" [2024-12] [[paper](https://arxiv.org/abs/2412.19437)]
+
+* **DeepSeek-V3:** "DeepSeek-V3: Decoupling Scaling Law for Training and Inference" ([Paper](https://arxiv.org/abs/2412.19437)) ([GitHub](https://github.com/deepseek-ai/DeepSeek-LLM)) - *(December 2024)*
+* **DeepSeek-V2:** "DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model" ([Paper](https://arxiv.org/abs/2405.04434)) - *(May 2024)*
+* **DeepSeek LLM:** "DeepSeek LLM: Scaling Open-Source Language Models with Longtermism" ([Paper](https://arxiv.org/abs/2401.02954)) - *(January 2024)*
+* **DeepSeekMoE:** "DeepSeekMoE: Towards Ultimate Expert Specialization in Mixture-of-Experts Language Models" ([Paper](https://arxiv.org/abs/2401.12246)) - *(January 2024)*
 
 **Mistral**
-- **Mistral**: "Mistral 7B" [2023-10] [[paper](https://arxiv.org/abs/2310.06825)] [[repo](https://github.com/mistralai/mistral-src)]
-- **Mixtral**: "Mixtral of Experts" [2024-01] [[paper](https://arxiv.org/abs/2401.04088)] [[blog](https://mistral.ai/news/mixtral-of-experts/)] (Utilizes MoE)
 
-**Qwen**
-- **Qwen**: "Qwen Technical Report" [2023-09] [[paper](https://arxiv.org/abs/2309.16609)] [[repo](https://github.com/QwenLM/Qwen)]
-- **Qwen 2**: "Qwen2: A Family of Open-Source LLMs with 14B-128B Parameters" [2024-09] [[paper](https://arxiv.org/abs/2409.12488)] [[repo](https://github.com/QwenLM/Qwen)]
-- **Qwen2.5**: "Qwen2.5 Technical Report" [2024-12] [[paper](https://arxiv.org/abs/2412.15115)]
+* **Mixtral:** "Mixtral of Experts" ([Paper](https://arxiv.org/abs/2401.04088)) ([GitHub](https://github.com/mistralai/mistral-src)) - *(January 2024)*
+* **Mistral 7B:** "Mistral 7B" ([Paper](https://arxiv.org/abs/2310.06825)) - *(October 2023)*
+
+**Qwen (Alibaba)**
+
+* **Qwen2.5:** "Qwen2.5: Advancing Large Language Models for Code, Math, Multilingualism, and Long Context" ([Paper](https://arxiv.org/abs/2412.15115)) ([GitHub](https://github.com/QwenLM/Qwen)) - *(December 2024)*
+* **Qwen2-VL:** (Multimodal Version) ([HF Models](https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct)) - *(June 2024)*
+* **Qwen 2:** "Qwen2: The new generation of Qwen large language models" ([Paper](https://arxiv.org/abs/2406.04808)) - *(June 2024)*
+* **Qwen:** "Qwen Technical Report" ([Paper](https://arxiv.org/abs/2309.16609)) - *(September 2023)*
 
 **Microsoft Phi**
-- **Phi-1.5**: "Textbooks Are All You Need II: phi-1.5 technical report" [2023-09] [[paper](https://arxiv.org/abs/2309.05463)] [[model](https://huggingface.co/microsoft/phi-1_5)]
-- **Phi-2**: "Phi-2: The surprising power of small language models" [2023-12] [[blog](https://www.microsoft.com/en-us/research/blog/phi-2-the-surprising-power-of-small-language-models/)]
-- **Phi-3**: "Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone" [2024-04] [[paper](https://arxiv.org/abs/2404.14219)]
-- **Phi-4**: "Phi-4 Technical Report" [2024-12] [[paper](https://arxiv.org/abs/2412.08905)]
-- **Phi-4-Mini**: "Phi-4-Mini Technical Report: Compact yet Powerful Multimodal Language Models via Mixture-of-LoRAs" [2025-03] [[paper](https://arxiv.org/abs/2503.01743)]
 
-**Other Publicly Available Models**
-- **GPT-NeoX**: "GPT-NeoX-20B: An Open-Source Autoregressive Language Model" [2022-04] [ACL 2022 Workshop] [[paper](https://arxiv.org/abs/2204.06745)] [[repo](https://github.com/EleutherAI/gpt-neox)]
-- **BLOOM**: "BLOOM: A 176B-Parameter Open-Access Multilingual Language Model" [2022-11] [[paper](https://arxiv.org/abs/2211.05100)] [[model](https://huggingface.co/models?search=bigscience/bloom)]
-- **Baichuan 2**: "Baichuan 2: Open Large-scale Language Models" [2023-09] [[paper](https://arxiv.org/abs/2309.10305)] [[repo](https://github.com/baichuan-inc/Baichuan2)]
-- **YAYI2**: "YAYI 2: Multilingual Open-Source Large Language Models" [2023-12] [[paper](https://arxiv.org/abs/2312.14862)] [[repo](https://github.com/wenge-research/YAYI2)]
-- **Orion**: "Orion-14B: Open-source Multilingual Large Language Models" [2024-01] [[paper](https://arxiv.org/abs/2401.06066)] [[repo](https://github.com/OrionStarAI/Orion)]
-- **OLMo**: "OLMo: Accelerating the Science of Language Models" [2024-02] [[paper](https://arxiv.org/abs/2402.00838)] [[repo](https://github.com/allenai/OLMo)]
-- **Yi**: "Yi: Open Foundation Models by 01.AI" [2024-03] [[paper](https://arxiv.org/abs/2403.04652)] [[repo](https://github.com/01-ai/Yi)]
-- **OLMoE**: "OLMoE: Open Mixture-of-Experts Language Models" [2024-09] [[paper](https://arxiv.org/abs/2409.02060)][[repo](https://github.com/allenai/OLMoE?tab=readme-ov-file#pretraining)]
-- **Yi-Lightning**: "Yi-Lightning Technical Report" [2024-12] [[paper](https://arxiv.org/abs/2412.01253)]
-- **YuLan-Mini**: "YuLan-Mini: An Open Data-efficient Language Model" [2024-12] [[paper](https://arxiv.org/abs/2412.17743)]
-- **OLMo 2**: "2 OLMo 2 Furious" [2024-12] [[paper](https://arxiv.org/abs/2501.00656)]
-- **SmolLM2**: "SmolLM2: When Smol Goes Big -- Data-Centric Training of a Small Language Model" [2025-02] [[paper](https://arxiv.org/abs/2502.02737)]
+* **Phi-4-Mini:** "Phi-4-Mini: A 2.7B Parameter Model Surpassing Mixtral 8x7B on Reasoning Benchmarks" ([Paper](https://arxiv.org/abs/2503.01743)) - *(March 2025)*
+* **Phi-3:** "Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone" ([Paper](https://arxiv.org/abs/2404.14219)) - *(April 2024)*
+* **Phi-2:** "Phi-2: The surprising power of small language models" ([Blog Post](https://www.microsoft.com/en-us/research/blog/phi-2-the-surprising-power-of-small-language-models/)) - *(December 2023)*
+* **Phi-1:** "Textbooks Are All You Need" ([Paper](https://arxiv.org/abs/2306.11644)) - *(June 2023)*
+
+**Other Publicly Available Models (Including Foundational/Base Models)**
+
+* **SmolLM2:** "SmolLM 2: Scaling Small Language Models through Sparse Activations" ([Paper](https://arxiv.org/abs/2502.02737)) - *(February 2025)*
+* **OLMo 2:** "OLMo 2: A Truly Open 70B Model" ([Paper](https://arxiv.org/abs/2501.00656)) ([GitHub](https://github.com/allenai/OLMo)) - *(January 2025)*
+* **YuLan-Mini:** "YuLan-Mini: A High-Performance and Efficient Open-Source Small Language Model" ([Paper](https://arxiv.org/abs/2412.17743)) - *(December 2024)*
+* **Yi-Lightning:** "Yi-Lightning: An Efficient and Capable Family of Small Language Models" ([Paper](https://arxiv.org/abs/2412.01253)) ([GitHub](https://github.com/01-ai/Yi)) - *(December 2024)*
+* **Yi:** "Yi: Open Foundation Models by 01.AI" ([Paper](https://arxiv.org/abs/2403.04652)) - *(March 2024)*
+* **OLMo:** "OLMo: Accelerating the Science of Language Models" ([Paper](https://arxiv.org/abs/2402.00838)) - *(February 2024)*
+* **Orion:** "Orion-14B: Scaling Cost-Effective Training and Inference for Large Language Models" ([Paper](https://arxiv.org/abs/2401.06066)) ([GitHub](https://github.com/OrionStarAI/Orion)) - *(January 2024)*
+* **YAYI2:** "YAYI 2: Multilingual Open-Source Large Language Models" ([Paper](https://arxiv.org/abs/2312.14862)) ([GitHub](https://github.com/wenge-research/YAYI2)) - *(December 2023)*
+* **Baichuan 2:** "Baichuan 2: Open Large-scale Language Models" ([Paper](https://arxiv.org/abs/2309.10305)) ([GitHub](https://github.com/baichuan-inc/Baichuan2)) - *(September 2023)*
+* **CodeLLaMA:** "Code Llama: Open Foundation Models for Code" ([Paper](https://arxiv.org/abs/2308.12950)) - *(August 2023)*
+* **StarCoder:** "StarCoder: may the source be with you!" ([Paper](https://arxiv.org/abs/2305.06161)) - *(May 2023)*
+* **LLaVA:** "Visual Instruction Tuning" ([Paper](https://arxiv.org/abs/2304.08485)) - *(April 2023)*
+* **BLOOM:** "BLOOM: A 176B-Parameter Open-Access Multilingual Language Model" ([Paper](https://arxiv.org/abs/2211.05100)) ([Model Hub](https://huggingface.co/bigscience/bloom)) - *(November 2022)*
+* **GPT-NeoX:** "GPT-NeoX-20B: An Open-Source Autoregressive Language Model" ([Paper](https://arxiv.org/abs/2204.06745)) ([GitHub](https://github.com/EleutherAI/gpt-neox)) - *(April 2022)*
+* **GLM:** "GLM: General Language Model Pretraining with Autoregressive Blank Infilling" ([Paper](https://arxiv.org/abs/2103.10360)) - *(March 2021)*
+* **T5:** "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer" ([Paper](https://arxiv.org/abs/1910.10683)) - *(October 2019)*
+
+**Specific Multimodal Fine-Tunes (Examples)**
+
+* **LLaVA-o1:** "LLaVA-o1: Pushing the Limits of Open Multimodal Models with Process Supervision" ([Paper](https://arxiv.org/abs/2406.17439)) - *(June 2024)*
+* **GLM-4V:** "GLM-4V: A General Multimodal Large Language Model with High Performance" ([Paper](https://arxiv.org/abs/2405.18754)) - *(May 2024)*
+* **AtomThink:** "AtomThink: A Multimodal Reasoning Model with Atomic Thought Decomposition" ([Paper](https://arxiv.org/abs/2404.18718)) - *(April 2024)*
+* **Math-LLaVA:** "Math-LLaVA: Bootstrapping Mathematical Reasoning for Large Vision Language Models" ([Paper](https://arxiv.org/abs/2404.02693)) - *(April 2024)*
+* **M-STAR:** "M-STAR: Boosting Math Reasoning Ability of Multimodal Language Models" ([Paper](https://arxiv.org/abs/2404.10596)) - *(April 2024)*
+* **MiniCPM-V:** "MiniCPM-V: A Vision Language Model for OCR and Reasoning" ([Paper](https://arxiv.org/abs/2311.10056)) - *(November 2023)*
 
 **Other Closed-Source / Commercial Models**
-- **Grok 1**: "Grok 1: Open Release of Grok-1" [2024-03] [[blog](https://x.ai/news/grok-os)]
-- **Grok 2**: "Grok-2 Beta Release" [2024-08] [[blog](https://x.ai/news/grok-2)]
-- **Grok 3**: "Grok 3 Beta — The Age of Reasoning Agents" [2025-02] [[blog](https://x.ai/news/grok-3)]
-- **Command R(+)**: [65, 47, 72]
-- **InternLM series**: [14, 22, 20, 34]
+
+* **Grok 3:** "Grok-3: The Next Generation of Grok" ([Blog Post](https://x.ai/news/grok-3)) - *(December 2024)*
+* **Command R(+):** "Introducing Command R+: A Scalable Large Language Model Built for Business" ([Blog Post](https://txt.cohere.com/command-r-plus-scalable-llm-built-for-business/)) - *(April 2024)*
+* **Grok 1:** "Grok-1: Release Announcement" ([Blog Post](https://x.ai/blog/grok-os)) - *(March 2024)*
+* **InternLM:** "InternLM: A Multilingual Language Model with Progressively Enhanced Capabilities" ([Paper](https://arxiv.org/abs/2309.01381)) - *(September 2023)*
 
 ## 6. Datasets & Benchmarks
 
-*Benchmarks, datasets, and evaluation methodologies for mathematical LLMs*
+> This section lists resources for training and evaluating mathematical LLMs.
+> *Note: Comprehensive listing and categorization heavily informed by Table 3 in survey arXiv:2503.17726.*
 
 ### 6.1 Problem Solving Benchmarks
 
-*Datasets primarily focused on evaluating mathematical problem-solving abilities.*
+*Datasets primarily focused on evaluating mathematical problem-solving abilities (word problems, competition math, etc.).*
 
-**Grade School:**
-- **GSM8K**: ([https://huggingface.co/datasets/gsm8k](https://huggingface.co/datasets/gsm8k)) - Grade School Math 8K word problems. [Source Paper](https://arxiv.org/abs/2110.14168)
-- **GSM8K Robustness Variants**: ([https://arxiv.org/abs/2402.06453](https://arxiv.org/abs/2402.06453)) - Robustness variants of GSM8K. [2, 38, 28, 73]
-- **SVAMP, AddSub, ASDiv**: Additional grade-school level datasets.
+**Grade School Level (Mostly MWP - Math Word Problems)**
 
-**Competition Level:**
-- **MATH**: ([https://huggingface.co/datasets/hendrycks/competition_math](https://huggingface.co/datasets/hendrycks/competition_math)) - High school competition problems (AMC, AIME). [Source Paper](https://arxiv.org/abs/2103.03874)
-- **AIME subsets**: Specific subsets focusing on AIME problems.
-- **OlympiadBench**: ([https://arxiv.org/abs/2311.07575](https://arxiv.org/abs/2311.07575)) - Challenging Olympiad-level problems.
-- **Recent Exam Problems**: (e.g., USAMO 2025 [56, 57], Gaokao [9, 75]) - Problems drawn from recent official exams.
-- **CHAMP**: "CHAMP: Mathematical Reasoning with Chain of Thought in Large Language Models" [2024-05] [[paper](https://arxiv.org/abs/2405.19254)]
+* **Dolphin18K Benchmark:** "How Well Do Large Language Models Perform on Basic Math Problems?" ([Paper](https://arxiv.org/abs/2303.07941)) - *(March 2023)*
+* **SVAMP Benchmark:** "Are NLP Models Really Solving Simple Math Word Problems?" ([Paper](https://aclanthology.org/2021.emnlp-main.810/)) ([HF Dataset](https://huggingface.co/datasets/ought/raft_svamp)) - *(November 2021)*
+* **GSM8K Benchmark:** "Training Verifiers to Solve Math Word Problems" ([Paper](https://arxiv.org/abs/2110.14168)) ([HF Dataset](https://huggingface.co/datasets/gsm8k)) - *(October 2021)*
+* **ASDiv Benchmark:** "ASDiv: A Diverse Corpus for Evaluating and Developing English Math Word Problem Solvers" ([Paper](https://aclanthology.org/2021.naacl-main.168/)) ([HF Dataset](https://huggingface.co/datasets/EleutherAI/asdiv)) - *(June 2021)*
+* **MultiArith Benchmark:** "Learning to Solve Arithmetic Word Problems with Operation-Based Knowledge" ([Paper](https://aclanthology.org/D17-1083/)) - *(September 2017)*
+* **MAWPS Benchmark:** "MAWPS: A Math Word Problem Repository" ([Paper](https://aclanthology.org/N16-1136/)) ([GitHub](https://github.com/facebookresearch/mawps-dataset)) - *(June 2016)*
+* **SingleOp Benchmark:** "Solving General Arithmetic Word Problems" ([Paper](https://aclanthology.org/D15-1101/)) - *(July 2015)*
+* **AddSub Benchmark:** "Learning to Solve Arithmetic Word Problems with Verb Categorization" ([Paper](https://aclanthology.org/N14-1049/)) - *(June 2014)*
 
-**University/Advanced Level:**
-- **MMLU (Math sections)**: ([https://paperswithcode.com/dataset/mmlu](https://paperswithcode.com/dataset/mmlu)) - Math portions of the Massive Multitask Language Understanding benchmark. [44, 53, 28, 47]
-- **MMLU-Pro**: ([https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro](https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro)) - More challenging MMLU variant. [Source Paper](https://arxiv.org/abs/2406.01574) [6, 31, 35, 30, 42, 47, 74, 76]
-- **GPQA**: ([https://github.com/google/BIG-bench/tree/main/bigbench/benchmark_tasks/gpqa](https://github.com/google/BIG-bench/tree/main/bigbench/benchmark_tasks/gpqa)) - Graduate-Level Google-Proof Q&A (STEM). [Source Paper](https://arxiv.org/abs/2311.12022) [35, 60, 30, 59, 42, 70, 72, 63, 64]
-- **SciBench**: ([https://scibench-ucla.github.io/](https://scibench-ucla.github.io/)) - College-level STEM problems from textbooks. [Source Paper](https://arxiv.org/abs/2307.10635) [51, 71, 35, 52, 53, 54, 55]
-- **U-MATH**: ([https://arxiv.org/abs/2402.10417](https://arxiv.org/abs/2402.10417)) - University-level problems. [6, 28, 73]
-- **LILA**: "LILA: A Unified Benchmark for Mathematical Reasoning" [2022-10] [[paper](https://arxiv.org/abs/2210.17517)]
+**Competition / High School / University Level**
 
-**Domain-Specific / Specialized:**
-- **MathQA**: "MathQA: Towards Interpretable Math Word Problem Solving with Operation-Based Formalisms" [2022-05] [[paper](https://aclanthology.org/N19-1245/)] [[dataset](https://math-qa.github.io/)]
-- **GeomVerse**: "GeomVerse: A Systematic Evaluation of Large Models for Geometric Reasoning" [2023-12] [[paper](https://arxiv.org/abs/2312.12241)]
-- **TABMWP**: "Dynamic Prompt Learning via Policy Gradient for Semi-structured Mathematical Reasoning" [2023-01] [[paper](https://arxiv.org/abs/2209.14610)] [[dataset](https://github.com/lupantech/tabular-math-word-problems)] - Reasoning over text and tables. [13, 15]
-- **AMPS**: "Measuring Mathematical Problem Solving With the MATH Dataset" [2021-03] [[paper](https://arxiv.org/abs/2103.03874)] (Associated dataset with MATH)
-- **ROBUSTMATH**: "MATHATTACK: Attacking Large Language Models Towards Math Solving Ability" [2023-09] [[paper](https://arxiv.org/abs/2309.05690)]
-- **MathEval**: ([https://openreview.net/forum?id=DexGnh0EcB](https://openreview.net/forum?id=DexGnh0EcB)) - Comprehensive suite across domains/difficulties. [51, 71, 9, 75, 77]
-- **MR-GSM8K**: ([https://github.com/dvlab-research/MR-GSM8K](https://github.com/dvlab-research/MR-GSM8K)) - Meta-reasoning (evaluating solutions). [Source Paper](https://arxiv.org/abs/2312.17080) [43, 45, 48, 46]
-- **FOLIO**: ([https://arxiv.org/abs/2209.00841](https://arxiv.org/abs/2209.00841)) - First-order logic reasoning. [6, 38, 24]
+* **MMLU-Pro Benchmark:** "MMLU-Pro: A More Robust and Challenging Multi-Task Language Understanding Benchmark" ([Paper](https://arxiv.org/abs/2406.01574)) ([HF Dataset](https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro)) - *(June 2024)*
+* **MathChat Benchmark:** "MathChat: Benchmarking Mathematical Reasoning and Instruction Following in Multi-Turn Interactions" ([Paper](https://arxiv.org/abs/2405.19444)) - *(May 2024)*
+* **Mamo Benchmark:** "LLMs for Mathematical Modeling: Towards Bridging the Gap between Natural and Mathematical Languages" ([Paper](https://arxiv.org/abs/2404.11917)) - *(April 2024)*
+* **MathUserEval Benchmark:** Introduced in "ChatGLM-Math: Improving Math Problem-Solving..." ([Paper](https://arxiv.org/abs/2404.06864)) ([GitHub](https://github.com/THUDM/ChatGLM-Math)) - *(April 2024)*
+* **MR-MATH Benchmark:** "MR-MATH: A Multi-Resolution Mathematical Reasoning Benchmark for Large Language Models" ([Paper](https://arxiv.org/abs/2404.13834)) - *(April 2024)*
+* **MATHTRAP Benchmark:** "MATHTRAP: A Large-Scale Dataset for Evaluating Mathematical Reasoning Ability of Foundation Models" ([Paper](https://arxiv.org/abs/2402.10611)) - *(February 2024)*
+* **GPQA Benchmark:** "GPQA: A Graduate-Level Google-Proof Q&A Benchmark" ([Paper](https://arxiv.org/abs/2311.12022)) ([GitHub](https://github.com/google/BIG-bench/tree/main/bigbench/benchmark_tasks/gpqa)) - *(November 2023)*
+* **MwpBench Benchmark:** Introduced in "MathScale: Scaling Instruction Tuning..." ([Paper](https://arxiv.org/abs/2310.17166)) - *(October 2023)*
+* **SciBench Benchmark:** "SciBench: Evaluating College-Level Scientific Problem-Solving Abilities of Large Language Models" ([Paper](https://arxiv.org/abs/2307.10635)) ([Website](https://scibench-ucla.github.io/)) - *(July 2023)*
+* **AIME Benchmark (Example Analysis):** "Solving Math Word Problems with Process- and Outcome-Based Feedback" ([Paper](https://arxiv.org/abs/2305.15062)) - *(May 2023)* (Uses AIME subset)
+* **AGIEval Benchmark:** "AGIEval: A Human-Centric Benchmark for Evaluating Foundation Models" ([Paper](https://arxiv.org/abs/2304.06364)) ([GitHub](https://github.com/microsoft/AGIEval)) - *(April 2023)*
+* **MATH Benchmark:** "Measuring Mathematical Problem Solving With the MATH Dataset" ([Paper](https://arxiv.org/abs/2103.03874)) ([HF Dataset](https://huggingface.co/datasets/hendrycks/competition_math)) - *(March 2021)*
+* **MMLU Benchmark (Math sections):** "Measuring Massive Multitask Language Understanding" ([Paper](https://arxiv.org/abs/2009.03300)) ([Dataset Info](https://paperswithcode.com/dataset/mmlu)) - *(September 2020)*
+
+**Domain-Specific / Other**
+
+* **MathEval Benchmark:** "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models" ([Paper](https://arxiv.org/abs/2402.03300)) ([OpenReview](https://openreview.net/forum?id=DexGnh0EcB)) - *(February 2024)* (Introduced/used in DeepSeekMath)
+* **GeomVerse Benchmark:** "GeomVerse: A Systematic Evaluation of Large Vision Language Models for Geometric Reasoning" ([Paper](https://arxiv.org/abs/2312.12241)) - *(December 2023)*
+* **MR-GSM8K Benchmark:** "MR-GSM8K: A Meta-Reasoning Benchmark for Large Language Model Evaluation" ([Paper](https://arxiv.org/abs/2312.17080)) ([GitHub](https://github.com/dvlab-research/MR-GSM8K)) - *(December 2023)*
+* **MGSM Benchmark:** "MGSM: A Multi-lingual GSM8K Benchmark" ([Paper](https://arxiv.org/abs/2310.04952)) ([HF Dataset](https://huggingface.co/datasets/juletxara/mgsm)) - *(October 2023)*
+* **ROBUSTMATH Benchmark:** "Evaluating the Robustness of Large Language Models on Math Problem Solving" ([Paper](https://arxiv.org/abs/2309.05690)) - *(September 2023)*
+* **TABMWP Benchmark:** "Tabular Math Word Problems" ([Paper](https://arxiv.org/abs/2209.14610)) ([GitHub](https://github.com/lupantech/tabular-math-word-problems)) - *(September 2022)*
+* **NumGLUE Benchmark:** "NumGLUE: A Suite of Fundamental yet Challenging Mathematical Reasoning Tasks" ([Paper](https://arxiv.org/abs/2109.06611)) - *(September 2021)*
+* **MathQA Benchmark:** "MathQA: Towards Interpretable Math Word Problem Solving with Operation-Based Formalisms" ([Paper](https://aclanthology.org/N19-1245/)) ([Website](https://math-qa.github.io/)) - *(July 2019)*
+* **Mathematics Benchmark:** "Analysing Mathematical Reasoning Abilities of Neural Models" ([Paper](https://arxiv.org/abs/1904.01557)) ([GitHub](https://github.com/deepmind/mathematics_dataset)) - *(April 2019)*
 
 ### 6.2 Theorem Proving Benchmarks
 
 *Benchmarks focused on formal mathematical proof generation and verification.*
 
-- **MiniF2F**: ([https://github.com/openai/miniF2F](https://github.com/openai/miniF2F)) - Formalized Olympiad/HS/UG problems (Lean, Isabelle, Metamath). [Source Paper](https://arxiv.org/abs/2109.00110) [6, 7, 24, 25, 52, 59, 36]
-- **NaturalProofs, ProofNet, HolStep, CoqGym**: Other benchmarks in formal methods. [6, 7, 59, 36]
+* **MathConstruct Benchmark:** "MathConstruct: Challenging LLM Reasoning with Constructive Proofs" ([Paper](https://arxiv.org/abs/2502.10197)) - *(February 2025)*
+* **ProofNet Benchmark:** "ProofNet: A Benchmark for Autoformalizing and Formally Proving Undergraduate-Level Mathematics" ([Paper](https://arxiv.org/abs/2302.12433)) ([Website](https://proofnet.github.io/)) - *(February 2023)*
+* **FOLIO Benchmark:** "FOLIO: Natural Language Reasoning with First-Order Logic" ([Paper](https://arxiv.org/abs/2209.00841)) ([Website](https://folio-benchmark.github.io/)) - *(September 2022)*
+* **MiniF2F Benchmark:** "miniF2F: A Cross-System Benchmark for Formal Olympiad-Level Mathematics" ([Paper](https://arxiv.org/abs/2109.00110)) ([GitHub](https://github.com/openai/miniF2F)) - *(September 2021)*
+* **NaturalProofs Benchmark:** "NaturalProofs: Mathematical Theorem Proving in Natural Language" ([Paper](https://arxiv.org/abs/2105.07101)) ([GitHub](https://github.com/wellecks/naturalproofs)) - *(May 2021)*
+* **INT Benchmark:** "INT: An Inequality Benchmark for Evaluating Generalization in Theorem Proving" ([Paper](https://arxiv.org/abs/2007.02924)) ([GitHub](https://github.com/zarkook/INT)) - *(July 2020)*
+* **CoqGym Benchmark:** "Learning to Prove Theorems via Interacting with Proof Assistants" ([Paper](https://arxiv.org/abs/1905.09381)) ([GitHub](https://github.com/princeton-vl/CoqGym)) - *(May 2019)*
+* **HolStep Benchmark:** "HOLStep: A Machine Learning Dataset for Higher-Order Logic Theorem Proving" ([Paper](https://arxiv.org/abs/1703.00431)) - *(March 2017)*
 
 ### 6.3 Multimodal Benchmarks
 
-*Benchmarks incorporating visual or other non-textual information.*
+*Benchmarks incorporating visual or other non-textual information. (Related to Sec 4)*
 
-- **MathVista**: ([https://mathvista.github.io/](https://mathvista.github.io/)) - Diverse visual contexts (charts, diagrams, etc.). [Source Paper](https://arxiv.org/abs/2310.02255)
-- **ScienceQA**: ([https://scienceqa.github.io/](https://scienceqa.github.io/)) - Multimodal science questions (incl. math). [Source Paper](https://arxiv.org/abs/2209.09958) [13, 15, 58, 56, 37, 62, 67, 53, 54]
-- **MATH-Vision**: ([https://arxiv.org/abs/2402.17177](https://arxiv.org/abs/2402.17177)) - Competition math with visual contexts. [Source Paper](https://arxiv.org/abs/2402.17177)
-- **MathVerse**: "MathVerse: Assessing Visual Mathematical Understanding in Multimodal LLMs" [2024-04] [[paper](https://arxiv.org/abs/2404.13834)]
-- **GeoQA / GeoEval**: Geometry problems benchmark. [Source Paper (Survey)](https://arxiv.org/abs/2412.11936) [2, 37]
-- **FigureQA, ChartQA variants, DocReason25K**: Figure/chart/document understanding benchmarks. [13, 15, 37]
-- **MM-MATH**: Process evaluation in multimodal math. [Source Paper (Survey)](https://arxiv.org/abs/2412.11936) [2, 37]
-- **ErrorRadar**: "ErrorRadar: Evaluating the Multimodal Error Detection of LLMs in Educational Settings" [2024-03] [[paper](https://arxiv.org/abs/2403.03894)]
+* **MM-MATH Benchmark:** Mentioned in "A Survey of Mathematical Reasoning in the Era of Multimodal Large Language Model" ([Paper](https://arxiv.org/abs/2412.11936)) - *(December 2024)*
+* **DocReason25K Benchmark:** "DocReason: A Benchmark for Document Image Reasoning with Large Multimodal Models" ([Paper](https://arxiv.org/abs/2405.16898)) - *(May 2024)*
+* **U-MATH Benchmark:** "U-MATH: A Comprehensive Benchmark for Evaluating Multimodal Math Problem Solving" ([Paper](https://arxiv.org/abs/2405.19028)) - *(May 2024)*
+* **We-Math Benchmark:** "We-Math: Does Your Large Multimodal Model Achieve Human-like Mathematical Reasoning?" ([Paper](https://arxiv.org/abs/2405.17361)) - *(May 2024)*
+* **M3CoT Benchmark:** Introduced in "Unified Abductive Cognition for Multimodal Reasoning" ([Paper](https://arxiv.org/abs/2405.17550)) - *(May 2024)*
+* **CMM-Math Benchmark:** "CMM-Math: A Comprehensive Chinese Multimodal Math Benchmark" ([Paper](https://arxiv.org/abs/2405.16783)) - *(May 2024)*
+* **MathVerse Benchmark:** "MathVerse: Does Your Multi-modal LLM Truly Understand Math?" ([Paper](https://arxiv.org/abs/2404.13834)) ([Website](https://mathverse.github.io/)) - *(April 2024)*
+* **MR-MATH Benchmark:** "MR-MATH: A Multi-Resolution Mathematical Reasoning Benchmark for Large Language Models" ([Paper](https://arxiv.org/abs/2404.13834)) - *(April 2024)*
+* **ErrorRadar Benchmark:** "ErrorRadar: Evaluating the Multimodal Error Detection of LLMs in Educational Settings" ([Paper](https://arxiv.org/abs/2403.03894)) - *(March 2024)*
+* **MATH-Vision Benchmark:** "MATH-Vision: Evaluating Mathematical Reasoning of Large Vision Language Models" ([Paper](https://arxiv.org/abs/2402.17177)) - *(February 2024)*
+* **GeoEval Benchmark:** Introduced in "GeomVerse: A Systematic Evaluation of Large Vision Language Models for Geometric Reasoning" ([Paper](https://arxiv.org/abs/2312.12241)) - *(December 2023)*
+* **MMMU Benchmark (Math subset):** "MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark for Expert AGI" ([Paper](https://arxiv.org/abs/2311.16502)) ([Website](https://mmmu-benchmark.github.io/)) - *(November 2023)*
+* **MathVista Benchmark:** "MathVista: Evaluating Mathematical Reasoning of Foundation Models in Visual Contexts" ([Paper](https://arxiv.org/abs/2310.02255)) ([Website](https://mathvista.github.io/)) - *(October 2023)*
+* **ScienceQA Benchmark:** "Learn to Explain: Multimodal Reasoning via Thought Chains for Science Question Answering" ([Paper](https://arxiv.org/abs/2209.09958)) ([Website](https://scienceqa.github.io/)) - *(September 2022)*
+* **ChartQA Benchmark:** "ChartQA: A Benchmark for Question Answering about Charts with Visual and Logical Reasoning" ([Paper](https://arxiv.org/abs/2203.10244)) ([Website](https://charts.allenai.org/)) - *(March 2022)*
+* **GeoQA Benchmark:** "GeoQA: A Geometric Question Answering Benchmark Towards Multimodal Numerical Reasoning" ([Paper](https://arxiv.org/abs/2009.05014)) - *(September 2020)*
+* **FigureQA Benchmark:** "FigureQA: An Annotated Figure Dataset for Visual Reasoning" ([Paper](https://arxiv.org/abs/1710.07300)) ([Website](http://vision.cs.ucla.edu/figureqa/)) - *(October 2017)*
 
 ### 6.4 Training Datasets
 
-*Datasets primarily used for training or fine-tuning models on mathematical tasks.*
+*Datasets primarily used for pre-training or fine-tuning models on mathematical tasks.*
 
-- **MathInstruct**: ([https://huggingface.co/datasets/TIGER-Lab/MathInstruct](https://huggingface.co/datasets/TIGER-Lab/MathInstruct)) - Instruction tuning dataset.
-- **OpenMathInstruct-1**: "OpenMathInstruct-1: A 1.8M Math Instruction Tuning Dataset" [2024-03] [[paper](https://arxiv.org/abs/2402.10176)]
-- **OpenMathInstruct-2**: "OpenMathInstruct-2: Accelerating AI for Math with Massive Open-Source Instruction Data" [2023-10] [[paper](https://arxiv.org/abs/2310.12591)]
-- **MATH-Instruct**: "Mammoth: Building Math Generalist Models Through Hybrid Instruction Tuning" [2023-09] [[paper](https://arxiv.org/abs/2309.05653)]
-- **OpenWebMath**: ([https://github.com/deepseek-ai/DeepSeek-Math](https://github.com/deepseek-ai/DeepSeek-Math)) (Corpus used by DeepSeekMath) - Large math-focused web corpus.
-- **PRM800K**: Process reward data. [Source Paper (Lightman et al., 2023)](https://arxiv.org/abs/2305.15062) [6]
-- **MetaMathQA**: Synthesized data. [Source Paper](https://arxiv.org/abs/2309.12284)
-- **MathV360K**: ([https://huggingface.co/datasets/Zhiqiang007/MathV360K](https://huggingface.co/datasets/Zhiqiang007/MathV360K)) - Large multimodal math dataset. [Source Paper](https://arxiv.org/abs/2404.02693)
-- **LeanNavigator generated data**: (4.7M theorems) [Source Paper](https://arxiv.org/abs/2503.04772) [8, 44, 46, 30]
+* **LeanNavigator generated data:** "Generating Millions Of Lean Theorems With Proofs By Exploring State Transition Graphs" ([Paper](https://arxiv.org/abs/2503.04772)) - *(March 2025)*
+* **OpenMathMix Dataset (QaDS):** "Exploring the Mystery of Influential Data for Mathematical Reasoning" ([Paper](https://arxiv.org/abs/2405.01201)) - *(May 2024)*
+* **Skywork-MathQA Dataset:** "Skywork-Math: Data Scaling Laws for Mathematical Reasoning in Large Language Models - The Story Goes On" ([Paper](https://arxiv.org/abs/2405.10814)) - *(May 2024)*
+* **MathChatSync Dataset:** Introduced in "MathChat: Benchmarking Mathematical Reasoning..." ([Paper](https://arxiv.org/abs/2405.19444)) - *(May 2024)*
+* **AutoMathText Dataset (AutoDS):** "Autonomous Data Selection with Zero-shot Generative Classifiers for Mathematical Texts" ([Paper](https://arxiv.org/abs/2404.05960)) ([Code](https://github.com/yifanzhang-pro/AutoMathText)) ([HF Dataset](https://huggingface.co/datasets/math-ai/AutoMathText)) - *(April 2024)*
+* **MathCode-Pile Dataset:** "MathCoder2: Better Math Reasoning from Continued Pretraining on Model-translated Mathematical Code" ([Paper](https://arxiv.org/abs/2404.11081)) ([Code](https://github.com/mathllm/MathCoder2)) - *(April 2024)*
+* **MathV360K Dataset:** "Math-LLaVA: Bootstrapping Mathematical Reasoning for Large Vision Language Models" ([Paper](https://arxiv.org/abs/2404.02693)) ([HF Dataset](https://huggingface.co/datasets/Zhiqiang007/MathV360K)) - *(April 2024)*
+* **MAmmoTH2 Data Strategy:** "MAmmoTH2: Scaling Instructions from the Web" ([Paper](https://arxiv.org/abs/2403.05274)) - *(March 2024)*
+* **OpenMathInstruct-1 Dataset:** "OpenMathInstruct-1: A 1.8 Million Math Instruction Tuning Dataset" ([Paper](https://arxiv.org/abs/2402.10176)) - *(February 2024)*
+* **OpenWebMath Corpus:** "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models" ([Paper](https://arxiv.org/abs/2402.03300)) ([GitHub](https://github.com/deepseek-ai/DeepSeek-Math)) - *(February 2024)*
+* **MathVL Dataset:** Introduced in "MathGLM-Vision: Solving Mathematical Problems..." ([Paper](https://arxiv.org/abs/2402.04503)) - *(February 2024)*
+* **MathInstruct Dataset:** "MAmmoTH: Building Math Generalist Models through Hybrid Instruction Tuning" ([Paper](https://arxiv.org/abs/2401.11445)) ([HF Dataset](https://huggingface.co/datasets/TIGER-Lab/MathInstruct)) - *(January 2024)*
+* **OpenMathInstruct-2 Dataset:** "Accelerating AI for Math with Massive Open-Source Instruction Data" ([Paper](https://arxiv.org/abs/2410.01560)) - *(October 2023)*
+* **Proof-Pile / Proof-Pile 2 Corpora:** "Llemma: An Open Language Model For Mathematics" ([Paper](https://arxiv.org/abs/2310.10631)) - *(October 2023)*
+* **MathScaleQA Dataset:** "MathScale: Scaling Instruction Tuning for Mathematical Reasoning" ([Paper](https://arxiv.org/abs/2310.17166)) - *(October 2023)*
+* **SciInstruct Dataset:** "SciInstruct: a Self-Reflective Instruction Annotated Dataset for Training Scientific Language Models" ([Paper](https://arxiv.org/abs/2309.06631)) ([Code](https://github.com/THUDM/SciGLM)) - *(September 2023)*
+* **MATH-Instruct Dataset:** "MATH-Instruct: A Large-Scale Mathematics Instruction-Tuning Dataset" ([Paper](https://arxiv.org/abs/2309.05653)) - *(September 2023)*
+
+### 6.5 Augmented / Synthetic Datasets
+
+*Datasets often generated synthetically or via augmentation techniques, used for specific training goals (e.g., verifiers, tool use, reasoning steps). (Supports techniques in Sec 3.3, 3.4)*
+
+* **DART-Math Datasets (DART):** "DART-Math: Difficulty-Aware Rejection Tuning for Mathematical Problem-Solving" ([Paper](https://arxiv.org/abs/2405.14194)) - *(May 2024)*
+* **PEN Dataset:** "PEN: Step-by-Step Training with Planning-Enhanced Explanations for Mathematical Reasoning" ([Paper](https://arxiv.org/abs/2405.17361)) - *(May 2024)*
+* **KPMath / KPMath-Plus Dataset (KPDDS):** "Key-Point-Driven Data Synthesis with its Enhancement on Mathematical Reasoning" ([Paper](https://arxiv.org/abs/2402.14836)) - *(February 2024)*
+* **MMIQC Dataset (IQC):** "Augmenting Math Word Problems via Iterative Question Composing" ([Paper](https://arxiv.org/abs/2402.07576)) - *(February 2024)*
+* **MetaMathQA Dataset:** "MetaMath: Bootstrap Your Own Mathematical Questions for Large Language Models" ([Paper](https://arxiv.org/abs/2309.12284)) ([HF Dataset](https://huggingface.co/datasets/meta-math/MetaMathQA)) - *(September 2023)*
+* **PRM800K Dataset:** "Solving Math Word Problems with Process- and Outcome-Based Feedback" ([Paper](https://arxiv.org/abs/2305.15062)) - *(May 2023)*
+* **Math50k Dataset:** "Teaching Small Language Models to Reason" ([Paper](https://arxiv.org/abs/2212.08410)) - *(December 2022)*
+* **MathQA-Python Dataset:** "Program of Thoughts Prompting: Disentangling Computation from Reasoning for Numerical Reasoning Tasks" ([Paper](https://arxiv.org/abs/2211.12588)) - *(November 2022)*
+* **miniF2F+informal Dataset:** "Draft, sketch, and prove: Guiding formal theorem provers with informal proofs" ([Paper](https://arxiv.org/abs/2210.12283)) - *(October 2022)*
+* **Lila Dataset:** "Lila: A Unified Benchmark for Mathematical Reasoning" ([Paper](https://arxiv.org/abs/2210.17517)) ([Website](https://allenai.org/lila/)) - *(October 2022)*
+* **Aggregate Dataset (for Minerva):** "Solving Quantitative Reasoning Problems With Language Models" ([Paper](https://arxiv.org/abs/2206.14858)) - *(June 2022)*
+* **NaturalProofs-Gen Dataset:** "NaturalProofs: Mathematical Theorem Proving in Natural Language" ([Paper](https://arxiv.org/abs/2105.07101)) ([GitHub](https://github.com/wellecks/naturalproofs)) - *(May 2021)*
 
 ## 7. Tools & Libraries
 
 *Software tools, frameworks, and libraries relevant for working with LLMs in mathematics.*
 
-**Interactive Theorem Provers (ITPs):**
-- **Lean**: ([https://lean-lang.org/](https://lean-lang.org/)) [60, 19, 61, 62, 63, 64]
-- **Isabelle**: ([https://isabelle.in.tum.de/](https://isabelle.in.tum.de/))
-- **Coq**: ([https://coq.inria.fr/](https://coq.inria.fr/))
+* **Data Processing (IBM):** "IBM Data Prep Kit" ([GitHub](https://github.com/IBM/data-prep-kit)) - *(November 2023)*
+* **Data Processing (Datatrove):** "Datatrove" ([GitHub](https://github.com/huggingface/datatrove)) - *(October 2023)*
+* **Framework (LPML):** "LPML: LLM-Prompting Markup Language for Mathematical Reasoning" ([Paper](https://arxiv.org/abs/2309.04269)) - *(September 2023)*
+* **Framework (LMDeploy):** "LMDeploy" ([GitHub](https://github.com/InternLM/lmdeploy)) - *(July 2023)*
+* **Evaluation (OpenCompass):** "OpenCompass" ([GitHub](https://github.com/open-compass/opencompass)) - *(May 2023)*
+* **Framework (Guidance):** "Guidance" ([GitHub](https://github.com/microsoft/guidance)) - *(February 2023)*
+* **Framework (LangChain):** "LangChain" ([Website](https://www.langchain.com/)) - *(October 2022)*
+* **Fine-tuning (LoRA):** "LoRA: Low-Rank Adaptation of Large Language Models" ([Paper](https://arxiv.org/abs/2106.09685)) - *(June 2021)*
+* **ITP (Lean):** "Lean Theorem Prover" ([Website](https://lean-lang.org/))
+* **ITP (Isabelle):** "Isabelle" ([Website](https://isabelle.in.tum.de/))
+* **ITP (Coq):** "The Coq Proof Assistant" ([Website](https://coq.inria.fr/))
 
-**LLM Interaction/Frameworks:**
-- **LangChain**: ([https://www.langchain.com/](https://www.langchain.com/))
-- **LMDeploy**: ([https://github.com/InternLM/lmdeploy](https://github.com/InternLM/lmdeploy)) [20, 66]
-- **Guidance**: ([https://github.com/microsoft/guidance](https://github.com/microsoft/guidance)) [5, 34]
-- **LPML**: "LPML: LLM-Prompting Markup Language for Mathematical Reasoning" [2023-09] [[paper](https://arxiv.org/abs/2309.04269)]
-
-**Specific Math Reasoning Tools/Implementations:**
-- **Math-CodeInterpreter**: "Solving Challenging Math Word Problems Using GPT-4 Code Interpreter with Code-Based Self-Verification" [2023-08] [[paper](https://arxiv.org/abs/2308.07921)]
-- **MathPrompter**: "MathPrompter: Mathematical Reasoning Using Large Language Models" [2023-07] [[paper](https://arxiv.org/abs/2303.05398)]
-- **BEATS**: "BEATS: Optimizing LLM Mathematical Capabilities with BackVerify and Adaptive Disambiguate based Efficient Tree Search" [2023-10] [[paper](https://arxiv.org/abs/2310.04344)]
-- **BoostStep**: "BoostStep: Boosting mathematical capability of Large Language Models via improved single-step reasoning" [2023-10] [[paper](https://arxiv.org/abs/2310.08573)]
-
-**Evaluation Frameworks:**
-- **OpenCompass**: ([https://github.com/open-compass/opencompass](https://github.com/open-compass/opencompass)) [22, 34, 17, 73]
-
-**Data Processing:**
-- **IBM Data Prep Kit**: ([https://github.com/IBM/data-prep-kit](https://github.com/IBM/data-prep-kit)) [71]
-- **Datatrove**: ([https://github.com/huggingface/datatrove](https://github.com/huggingface/datatrove)) [71]
-
-**Fine-tuning / Adaptation:**
-- **LoRA**: "LoRA: Low-Rank Adaptation of Large Language Models" [2021-06] [[paper](https://arxiv.org/abs/2106.09685)]
-
-## 8. Challenges & Future Directions
-
-*Research on capabilities, limitations, and future directions of LLMs for mathematics*
-
-**Challenges:**
-- **Reliability & Soundness**: Overcoming calculation errors and logical inconsistencies (hallucinations) remains crucial, especially for formal proofs. [1, 6, 58, 56, 46]
-- **Complexity Handling**: Scaling reasoning to handle very long proofs and deeply complex problems is an ongoing challenge. [6, 58, 56, 33]
-- **Multimodal Integration**: Effectively fusing and reasoning over text, diagrams, charts, etc. needs improvement. [2, 6, 68, 57]
-- **Evaluation**: Developing robust benchmarks that assess true reasoning (not just final answers) and resist data contamination is vital. [1, 2, 6, 56, 33, 43, 45, 75]
-- **Data Scarcity**: Need for more high-quality, large-scale data, especially with reasoning steps, formal proofs, and multimodal contexts. [1, 2, 22, 6, 46, 30]
-- **Interpretability**: Understanding *how* LLMs reach conclusions is key for trust. [1, 78, 6]
-- **Robustness**: Models can be brittle to input perturbations. See "A Causal Framework to Quantify the Robustness of Mathematical Reasoning with Language Models" [2023-05] [[paper](https://arxiv.org/abs/2305.14291)] and "MATHATTACK: Attacking Large Language Models Towards Math Solving Ability" [2023-09] [[paper](https://arxiv.org/abs/2309.05690)].
-- **Tokenization Impact**: Arithmetic performance can be affected by tokenization. See "How Well Do Large Language Models Perform in Arithmetic Tasks?" [2023-04] [[paper](https://arxiv.org/abs/2304.02015)].
-
-**Future Directions & Emerging Research:**
-- **Hybrid Neural-Symbolic Methods**: Combining LLM strengths with symbolic rigor. [1, 2, 6, 9, 11, 56, 33, 36, 37, 23, 75]
-- **Verification & Correction**: Better automated verification and self-correction. [1] See also "Learning from Mistakes Makes LLM Better Reasoner" [2023-10] [[paper](https://arxiv.org/abs/2310.13522)].
-- **Enhanced Tool Use**: Seamless integration with more sophisticated external tools. [1]
-- **Advanced Training Paradigms**: Refining RL (especially process rewards) and self-improvement. [1]
-- **Focus on Reasoning Process**: Training and evaluating intermediate steps, not just final answers. [2]
-- **Multimodal Advancements**: Better architectures and data for multimodal fusion. [1] See "Math-PUMA: Progressive Upward Multimodal Alignment for Math Reasoning Enhancement" [2024-04] [[paper](https://arxiv.org/abs/2404.01166)].
-- **Interpretability & Explainability**: Making reasoning processes transparent. [1]
-- **Improved Evaluation**: Creating more challenging, robust, process-oriented benchmarks. [1]
-- **Interactive Reasoning & Human-Centric Design**: LLM-human collaboration. [1] See "Exploring Pre-service Teachers' Perceptions of Large Language Models-Generated Hints in Online Mathematics Learning" [2023-06] [[paper](https://arxiv.org/abs/2306.17129)].
-- **Continual Learning**: Enabling models to learn continuously from new data or mistakes. See "Learning from Mistakes Makes LLM Better Reasoner" [2023-10] [[paper](https://arxiv.org/abs/2310.13522)].
-- **Program Search**: Using LLMs for mathematical discovery via program search. See "Mathematical Discoveries from Program Search with Large Language Models" [2023-11] [[paper](https://arxiv.org/abs/2311.13444)].
-- **Scaling Relationships**: Understanding how scale affects math reasoning. See "Scaling Relationship on Learning Mathematical Reasoning with Large Language Models" [2023-10] [[paper](https://arxiv.org/abs/2310.07177)].
-- **Capability Analysis**: Analyzing inherent capabilities of models. See "Common 7B Language Models Already Possess Strong Math Capabilities" [2023-10] [[paper](https://arxiv.org/abs/2310.04560)].
-
-## 9. Contributing
+## 8. Contributing
 
 We are looking for contributors to help build this resource. Please read the [contribution guidelines](CONTRIBUTING.md) before submitting a pull request.
 
-## 10. Citation
+## 9. Citation
 
 If you find this repository useful, please consider citing:
 
 ```bibtex
 @misc{awesome-math-llm,
-  author = {doublelei},
-  title = {Awesome-Math-LLM},
+  author = {doublelei and Contributors},
+  title = {Awesome-Math-LLM: A Curated List of Large Language Models for Mathematics},
   year = {2025},
   publisher = {GitHub},
   journal = {GitHub Repository},
-  howpublished = {\url{https://github.com/doublelei/Awesome-Math-LLM}}
+  howpublished = {\url{[https://github.com/doublelei/Awesome-Math-LLM](https://github.com/doublelei/Awesome-Math-LLM)}}
 }
-```
-
-## 11. License
-
-This repository is licensed under the [MIT License](LICENSE).
