@@ -68,6 +68,7 @@ A curated list of resources dedicated to Large Language Models (LLMs) for mathem
 * "Awesome LLM Reasoning" ([GitHub](https://github.com/atfortes/Awesome-LLM-Reasoning))
 * "Awesome System 2 Reasoning LLM" ([GitHub](https://github.com/zzli2022/Awesome-System2-Reasoning-LLM))
 * "Awesome Multimodal LLM for Math/STEM" ([GitHub](https://github.com/InfiMM/Awesome-Multimodal-LLM-for-Math-STEM))
+* "Deep Learning for Theorem Proving (DL4TP)" ([Github](https://github.com/zhaoyu-li/DL4TP))
 
 ## 2. 🧮 Mathematical Tasks & Foundational Capabilities
 
@@ -77,15 +78,14 @@ A curated list of resources dedicated to Large Language Models (LLMs) for mathem
 
 *Focuses on how LLMs process, represent, and compute basic numerical operations. Challenges here underpin performance on more complex tasks.*
 
-* **FoNE:** "FoNE: Precise Single-Token Number Embeddings via Fourier Features" ([Paper](https://arxiv.org/abs/2502.09741)) - *(February 2025)*
-* "Over-Tokenized Transformer: Vocabulary is Generally Worth Scaling" ([Paper](https://arxiv.org/abs/2501.16975)) - *(January 2025)*
+* **FoNE:** "FoNE: Precise Single-Token Number Embeddings via Fourier Features" ([Paper](https://arxiv.org/abs/2502.09741)) ([Website](https://fouriernumber.github.io/)) - *(February 2025)*
 * "Arithmetic Transformers Can Length-Generalize in Both Operand Length and Count" ([Paper](https://arxiv.org/abs/2410.15787)) - *(October 2024)*
-* "Language Models Encode Numbers Using Digit Representations in Base 10" ([Paper](https://arxiv.org/abs/2410.11781)) - *(October 2024)*
+* "Language Models Encode Numbers Using Digit Representations in Base 10" ([Paper](https://arxiv.org/abs/2410.11781)) ([Code](https://github.com/amitlevy/base10)) - *(October 2024)*
 * **MathGLM (RevOrder):** "RevOrder: A Novel Method for Enhanced Arithmetic in Language Models" ([Paper](https://arxiv.org/abs/2402.03822)) - *(February 2024)*
-* "Tokenization counts: the impact of tokenization on arithmetic in frontier LLMs" ([Paper](https://arxiv.org/abs/2402.14903)) - *(February 2024)*
+* "Tokenization counts: the impact of tokenization on arithmetic in frontier LLMs" ([Paper](https://arxiv.org/abs/2402.14903)) ([code](https://github.com/aadityasingh/tokenizationcounts)) - *(February 2024)*
 * "Length Generalization in Arithmetic Transformers" ([Paper](https://arxiv.org/abs/2306.15400)) - *(June 2023)*
-* **GOAT:** "Goat: Fine-tuned LLaMA Outperforms GPT-4 on Arithmetic Tasks" ([Paper](https://arxiv.org/abs/2305.14201)) - *(May 2023)*
-* "How well do large language models perform in arithmetic tasks?" ([Paper](https://arxiv.org/abs/2304.02015)) - *(April 2023)*
+* **GOAT:** "Goat: Fine-tuned LLaMA Outperforms GPT-4 on Arithmetic Tasks" ([Paper](https://arxiv.org/abs/2305.14201)) ([Code](https://github.com/liutiedong/goat)) - *(May 2023)*
+* "How well do large language models perform in arithmetic tasks?" ([Paper](https://arxiv.org/abs/2304.02015)) ([Code](https://github.com/GanjinZero/math401-llm)) - *(April 2023)*
 * "Teaching algorithmic reasoning via in-context learning" ([Paper](https://arxiv.org/abs/2211.09066)) - *(November 2022)*
 * **Scratchpad:** "Show Your Work: Scratchpads for Intermediate Computation with Language Models" ([Paper](https://arxiv.org/abs/2112.00114)) - *(December 2021)*
 
@@ -95,12 +95,12 @@ A curated list of resources dedicated to Large Language Models (LLMs) for mathem
 
 * *Key Benchmarks:* GSM8K, SVAMP, AddSub/ASDiv, MultiArith, Math23k, TabMWP, MR-GSM8K (See Section 6.1 for details)
 
-* **UPFT:** "The First Few Tokens Are All You Need: An Efficient and Effective Unsupervised Prefix Fine-Tuning Method for Reasoning Models" ([Paper](https://arxiv.org/abs/2503.02875)) - *(March 2025)*
+* **UPFT:** "The First Few Tokens Are All You Need: An Efficient and Effective Unsupervised Prefix Fine-Tuning Method for Reasoning Models" ([Paper](https://arxiv.org/abs/2503.02875)) ([Code](https://github.com/1KE-JI/UPFT)) - *(March 2025)*
 * **ArithmAttack:** "ArithmAttack: Evaluating Robustness of LLMs to Noisy Context in Math Problem Solving" ([Paper](https://arxiv.org/abs/2501.08203)) - *(January 2025)*
 * **MetaMath:** "MetaMath: Bootstrap Your Own Mathematical Questions for Large Language Models" ([Paper](https://arxiv.org/abs/2309.12284)) ([Code](https://github.com/meta-math/MetaMath)) - *(September 2023)*
 * **WizardMath:** "WizardMath: Empowering Mathematical Reasoning for Large Language Models via Reinforced Evol-Instruct" ([Paper](https://arxiv.org/abs/2308.09583)) ([HF Models](https://huggingface.co/WizardLM/WizardMath-70B-V1.0)) - *(August 2023)*
 * "Let's Verify Step by Step" ([Paper](https://arxiv.org/abs/2305.20050)) - *(May 2023)*
-* **MathPrompter:** "MathPrompter: Mathematical Reasoning using Large Language Models" ([Paper](https://arxiv.org/abs/2303.05398)) - *(March 2023)*
+* **MathPrompter:** "MathPrompter: Mathematical Reasoning using Large Language Models" ([Paper](https://arxiv.org/abs/2303.05398)) ([Code](https://github.com/RamonKaspar/MathPrompter)) - *(March 2023)*
 
 ### 2.3 Algebra, Geometry, Calculus, etc.
 
@@ -108,10 +108,11 @@ A curated list of resources dedicated to Large Language Models (LLMs) for mathem
 
 * *Key Benchmarks:* MATH, SciBench, MMLU (Math Subsets) (See Section 6.1 for details)
 
+* **AlphaGeometry2** "Gold-medalist Performance in Solving Olympiad Geometry with AlphaGeometry2" ([Paper](https://arxiv.org/abs/2502.03544)) - *(February 2025)*
 * **AlphaGeometry:** "AlphaGeometry: An Olympiad-level AI system for geometry" ([Blog Post](https://deepmind.google/discover/blog/alphageometry-an-olympiad-level-ai-system-for-geometry/)) - *(January 2024)*
 * **Llemma:** "Llemma: An Open Language Model For Mathematics" ([Paper](https://arxiv.org/abs/2310.10631)) ([HF Models](https://huggingface.co/EleutherAI/llemma_7b)) - *(October 2023)*
-* **UniGeo:** "Unifying Geometry Logical Reasoning via Reformulating Mathematical Expression" ([Paper](https://arxiv.org/abs/2210.01196)) - *(October 2022)*
-* **Inter-GPS:** "Inter-GPS: Interpretable Geometry Problem Solving with Formal Language and Symbolic Reasoning" ([Paper](https://arxiv.org/abs/2105.04165)) - *(May 2021)*
+* **UniGeo:** "UniGeo: Unifying Geometry Logical Reasoning via Reformulating Mathematical Expression" ([Paper](https://arxiv.org/abs/2212.02746)) ([Code](https://github.com/chen-judge/UniGeo)) - *(October 2022)*
+* **Inter-GPS:** "Inter-GPS: Interpretable Geometry Problem Solving with Formal Language and Symbolic Reasoning" ([Paper](https://arxiv.org/abs/2105.04165)) ([Website](https://lupantech.github.io/inter-gps/)) - *(May 2021)*
 
 ### 2.4 Competition Math
 
@@ -131,12 +132,12 @@ A curated list of resources dedicated to Large Language Models (LLMs) for mathem
 * *Key Benchmarks:* miniF2F, ProofNet, NaturalProofs, HolStep, CoqGym, LeanStep, INT, FOLIO, MathConstruct (See Section 6.2 for details)
 
 * **LeanNavigator:** "Generating Millions Of Lean Theorems With Proofs By Exploring State Transition Graphs" ([Paper](https://arxiv.org/abs/2503.04772)) - *(March 2025)*
-* **MathConstruct Benchmark:** "MathConstruct: Challenging LLM Reasoning with Constructive Proofs" ([Paper](https://arxiv.org/abs/2502.10197)) - *(February 2025)*
-* **BFS-Prover:** "BFS-Prover: Scalable Best-First Tree Search for LLM-based Automatic Theorem Proving" ([Paper](https://arxiv.org/abs/2502.03438)) - *(February 2025)*
+* **MathConstruct Benchmark:** "MathConstruct: Challenging LLM Reasoning with Constructive Proofs" ([Paper](https://arxiv.org/abs/2502.10197)) ([Code](https://github.com/eth-sri/mathconstruct)) - *(February 2025)*
+* **BFS-Prover:** "BFS-Prover: Scalable Best-First Tree Search for LLM-based Automatic Theorem Proving" ([Paper](https://arxiv.org/abs/2502.03438)) ([HFModels](https://huggingface.co/bytedance-research/BFS-Prover)) - *(February 2025)*
 * **Llemma:** "Llemma: An Open Language Model For Mathematics" ([Paper](https://arxiv.org/abs/2310.10631)) ([HF Models](https://huggingface.co/EleutherAI/llemma_7b)) - *(October 2023)*
-* "Draft, sketch, and prove: Guiding formal theorem provers with informal proofs" ([Paper](https://arxiv.org/abs/2210.12283)) - *(October 2022)*
+* "Draft, sketch, and prove: Guiding formal theorem provers with informal proofs" ([Paper](https://arxiv.org/abs/2210.12283)) ([Code](https://github.com/albertqjiang/draft_sketch_prove)) - *(October 2022)*
 * **GPT-f:** "Generative Language Modeling for Automated Theorem Proving" ([Paper](https://arxiv.org/abs/2009.03393)) - *(September 2020)*
-* **CoqGym:** "Learning to Prove Theorems via Interacting with Proof Assistants" ([Paper](https://arxiv.org/abs/1905.09381)) - *(May 2019)*
+* **CoqGym:** "Learning to Prove Theorems via Interacting with Proof Assistants" ([Paper](https://arxiv.org/abs/1905.09381)) ([Code](https://github.com/princeton-vl/CoqGym)) - *(May 2019)*
 * **DeepMath:** "DeepMath - Deep Sequence Models for Premise Selection" ([Paper](https://arxiv.org/abs/1606.04442)) - *(June 2016)*
 
 ## 3. 🧠 Core Reasoning & Problem-Solving Techniques
