@@ -1,6 +1,7 @@
 # Awesome-Math-LLM
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green)](https://github.com/doublelei/Awesome-Math-LLM/pulls) [![GitHub last commit (branch)](https://img.shields.io/github/last-commit/zhaoyu-li/DL4TP/main?logo=github&color=green)](https://github.com/doublelei/Awesome-Math-LLM)
+
 A curated list of resources dedicated to Large Language Models (LLMs) for mathematics, mathematical reasoning, and mathematical problem-solving.
 
 > We welcome contributions! Please read the [contribution guidelines](CONTRIBUTING.md) before submitting a pull request.
