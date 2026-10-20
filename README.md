@@ -525,6 +525,7 @@ A curated list of resources dedicated to Large Language Models (LLMs) for mathem
 
 *Software tools, frameworks, and libraries relevant for working with LLMs in mathematics.*
 
+* **Evaluation (Scorio):** "Scorio" ([GitHub](https://github.com/mohsenhariri/scorio)) ([Paper](https://arxiv.org/abs/2510.04265)) - *(October 2025)*
 * **Data Processing (IBM):** "IBM Data Prep Kit" ([GitHub](https://github.com/IBM/data-prep-kit)) - *(November 2023)*
 * **Data Processing (Datatrove):** "Datatrove" ([GitHub](https://github.com/huggingface/datatrove)) - *(October 2023)*
 * **Framework (LPML):** "LPML: LLM-Prompting Markup Language for Mathematical Reasoning" ([Paper](https://arxiv.org/abs/2309.04269)) - *(September 2023)*
